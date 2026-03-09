@@ -655,11 +655,12 @@ main {
 }
 
 .author-img {
-    width: 250px;
-    height: 250px;
+    width: 300px;
+    height: 300px;
     object-fit: cover;
-    border-radius: 50%;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    object-position: top;
+    border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
 }
 
 /* FAQ */
