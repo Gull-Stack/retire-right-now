@@ -159,7 +159,7 @@ main {
 
 /* Sections */
 .section {
-    padding: 80px 0;
+    padding: 5rem 0;
 }
 
 .section-gray {
@@ -174,6 +174,66 @@ main {
 .section-dark h2,
 .section-dark h3 {
     color: #ffffff;
+}
+
+/* CTA Sections */
+.cta-section {
+    padding: 2.5rem 0;
+    background: #ffffff;
+}
+
+.cta-centered {
+    text-align: center;
+}
+
+/* Quote Bands */
+.quote-band {
+    background: #0d1b2a;
+    color: #ffffff;
+    padding: 4rem 0;
+    position: relative;
+    text-align: center;
+    clip-path: polygon(0 3%, 100% 0%, 100% 97%, 0% 100%);
+    margin: 2rem 0;
+}
+
+.quote-band blockquote {
+    font-size: 2rem;
+    font-style: italic;
+    font-weight: 300;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.quote-band cite {
+    display: block;
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #FFD970;
+    font-style: normal;
+}
+
+/* Final CTA Band */
+.final-cta-band {
+    background: #0d1b2a;
+    color: #ffffff;
+    padding: 4rem 0;
+    text-align: center;
+    clip-path: polygon(0 3%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.final-cta-band h2 {
+    color: #ffffff;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.final-cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 /* Hero Section */
@@ -239,7 +299,7 @@ main {
 .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    gap: 1.5rem;
     margin-top: 3rem;
 }
 
@@ -270,23 +330,21 @@ main {
 .framework-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 0;
+    gap: 1.5rem;
     margin-top: 3rem;
-    background: #ffffff;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    align-items: stretch;
 }
 
 .pillar-card {
     background: #ffffff;
     padding: 2rem;
     text-align: center;
-    border-right: 1px solid #e5e7eb;
-}
-
-.pillar-card:last-child {
-    border-right: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 .pillar-icon {
@@ -299,7 +357,11 @@ main {
     align-items: center;
     justify-content: center;
     color: #ffffff;
-    font-size: 1.5rem;
+}
+
+.pillar-icon svg {
+    width: 32px;
+    height: 32px;
 }
 
 .pillar-card h4 {
@@ -311,6 +373,7 @@ main {
     font-size: 0.9rem;
     color: #666666;
     margin: 0;
+    flex-grow: 1;
 }
 
 /* Chapter Roadmap */
@@ -381,7 +444,7 @@ main {
 .testimonials-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    gap: 1.5rem;
     margin-top: 3rem;
 }
 
@@ -415,7 +478,7 @@ main {
 .book-formats {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    gap: 1.5rem;
     margin-top: 3rem;
 }
 
@@ -544,6 +607,18 @@ main {
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+    .framework-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .final-cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
 @media (max-width: 768px) {
     .container {
         padding: 0 16px;
@@ -565,6 +640,28 @@ main {
         font-size: 1.875rem;
     }
     
+    .section {
+        padding: 4rem 0;
+    }
+    
+    .quote-band {
+        padding: 3rem 0;
+        clip-path: polygon(0 2%, 100% 0%, 100% 98%, 0% 100%);
+    }
+    
+    .quote-band blockquote {
+        font-size: 1.5rem;
+    }
+    
+    .final-cta-band {
+        padding: 3rem 0;
+        clip-path: polygon(0 2%, 100% 0%, 100% 100%, 0% 100%);
+    }
+    
+    .final-cta-band h2 {
+        font-size: 2rem;
+    }
+    
     .hero-content {
         grid-template-columns: 1fr;
         text-align: center;
@@ -582,15 +679,6 @@ main {
     
     .framework-grid {
         grid-template-columns: 1fr;
-    }
-    
-    .pillar-card {
-        border-right: none;
-        border-bottom: 1px solid #e5e7eb;
-    }
-    
-    .pillar-card:last-child {
-        border-bottom: none;
     }
     
     .process-steps {
@@ -620,11 +708,15 @@ main {
 
 @media (max-width: 480px) {
     .section {
-        padding: 60px 0;
+        padding: 3rem 0;
+    }
+    
+    .cta-section {
+        padding: 2rem 0;
     }
     
     .hero {
-        padding: 80px 0;
+        padding: 4rem 0;
     }
     
     .hero-cta {
@@ -648,5 +740,13 @@ main {
     
     .testimonials-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .quote-band blockquote {
+        font-size: 1.25rem;
+    }
+    
+    .final-cta-band h2 {
+        font-size: 1.75rem;
     }
 }
