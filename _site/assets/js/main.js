@@ -29,6 +29,25 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                // Add staggered animation delay
+                setTimeout(() => {
+                    entry.target.classList.add('visible');
+                }, index * 100);
+            }
+        });
+    }, { 
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    document.querySelectorAll('.animate-in').forEach(el => {
+        observer.observe(el);
+    });
+    
     // FAQ Accordion
     const faqQuestions = document.querySelectorAll('.faq-question');
     

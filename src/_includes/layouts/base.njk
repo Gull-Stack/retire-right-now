@@ -15,11 +15,15 @@
     <meta property="og:type" content="{% if page.url == '/' %}website{% else %}article{% endif %}">
     <meta property="og:url" content="{{ site.url }}{{ page.url }}">
     <meta property="og:site_name" content="{{ site.title }}">
+    <meta property="og:image" content="{{ site.url }}/assets/images/book/ebook-cover.jpg">
+    <meta property="og:image:alt" content="Retire Right, Retire Now book cover by Mike Stevens">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{% if title %}{{ title }} | {% endif %}{{ site.title }}">
     <meta name="twitter:description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
+    <meta name="twitter:image" content="{{ site.url }}/assets/images/book/ebook-cover.jpg">
+    <meta name="twitter:image:alt" content="Retire Right, Retire Now book cover by Mike Stevens">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
