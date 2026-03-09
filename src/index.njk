@@ -13,13 +13,26 @@ description: "Retire Right, Retire Now will show you how to turn your savings in
                 <h1 class="animate-in">A Portfolio Is Not a Plan.</h1>
                 <p class="subtitle animate-in">Retire Right, Retire Now will show you how to turn your savings into a clear, coordinated retirement strategy — so you can stop worrying and start living.</p>
                 <div class="hero-cta animate-in">
-                    <a href="#get-copy" class="btn btn-secondary btn-large">Get Your Free Chapter</a>
-                    <a href="https://capitalwealth.com" target="_blank" rel="noopener" class="btn btn-primary btn-large">Schedule a Consultation</a>
+                    <a href="#free-chapter" class="btn btn-secondary btn-large">Get Your Free Chapter</a>
+                    <a href="#framework" class="btn btn-outline btn-large">See the Framework</a>
                 </div>
             </div>
             <div class="hero-book">
                 <img src="/assets/images/book/book-tablet-mockup.png" alt="Retire Right, Retire Now by Mike Stevens" class="hero-book-img animate-in">
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- The Problem — Emotional Hook (StoryBrand) -->
+<section class="section problem-section">
+    <div class="container">
+        <div class="problem-content animate-in">
+            <h2>You've Done Everything Right.<br>So Why Does Retirement Still Feel Uncertain?</h2>
+            <p>You saved in your 401(k). You paid off the house. You did what you were told.</p>
+            <p>But now you're staring at a pile of accounts, wondering: <em>Is it enough? Will it last? What am I forgetting?</em></p>
+            <p>Mike's passion for retirement planning began when his father passed away unexpectedly at age 49. Watching his mother face complex financial decisions alone showed him how unprepared many people are — and sparked his commitment to helping others feel more informed and prepared.</p>
+            <p class="problem-closing"><strong><em>Retire Right, Retire Now</em> answers those questions — clearly, honestly, and without the jargon.</strong></p>
         </div>
     </div>
 </section>
@@ -50,7 +63,7 @@ description: "Retire Right, Retire Now will show you how to turn your savings in
 <section class="cta-section">
     <div class="container">
         <div class="cta-centered">
-            <a href="https://capitalwealth.com" target="_blank" rel="noopener" class="btn btn-primary btn-large">Schedule a Consultation</a>
+            <a href="#free-chapter" class="btn btn-secondary btn-large">Get Your Free Chapter</a>
         </div>
     </div>
 </section>
@@ -221,7 +234,7 @@ description: "Retire Right, Retire Now will show you how to turn your savings in
 <section class="cta-section">
     <div class="container">
         <div class="cta-centered">
-            <a href="https://capitalwealth.com" target="_blank" rel="noopener" class="btn btn-primary btn-large">Schedule a Consultation</a>
+            <a href="#free-chapter" class="btn btn-secondary btn-large">Get Your Free Chapter</a>
         </div>
     </div>
 </section>
@@ -300,7 +313,35 @@ description: "Retire Right, Retire Now will show you how to turn your savings in
             </div>
         </div>
         <div style="text-align: center; margin-top: 3rem;">
-            <a href="https://capitalwealth.com" target="_blank" rel="noopener" class="btn btn-primary btn-large">Start Your Journey Today</a>
+            <a href="#free-chapter" class="btn btn-secondary btn-large">Start With a Free Chapter</a>
+        </div>
+    </div>
+</section>
+
+<!-- Free Chapter Opt-In Section -->
+<section id="free-chapter" class="section section-warm optin-section">
+    <div class="container">
+        <div class="optin-content animate-in">
+            <div class="optin-text">
+                <div class="eyebrow">FREE CHAPTER</div>
+                <h2>Get Your Free Chapter</h2>
+                <p>Sign up to receive your complimentary first chapter of <em>Retire Right, Retire Now</em> and get occasional retirement insights from Mike in your inbox.</p>
+                <p class="trust-signal">🔒 No spam. Unsubscribe anytime.</p>
+            </div>
+            <div class="optin-form-wrap">
+                <form class="optin-form" id="chapterForm" action="#" method="POST">
+                    <div class="form-group">
+                        <label for="optin-name">First Name</label>
+                        <input type="text" id="optin-name" name="first_name" placeholder="Your first name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="optin-email">Email Address</label>
+                        <input type="email" id="optin-email" name="email" placeholder="you@example.com" required>
+                    </div>
+                    <button type="submit" class="btn btn-secondary btn-large btn-full">Get Your Free Chapter</button>
+                </form>
+                <!-- TODO: Replace form action with Snappy Kraken embed/endpoint -->
+            </div>
         </div>
     </div>
 </section>
@@ -334,11 +375,6 @@ description: "Retire Right, Retire Now will show you how to turn your savings in
                 <div class="coming-soon">Coming Spring 2026</div>
             </div>
         </div>
-        <div style="text-align: center; margin-top: 3rem;">
-            <h3>Ready to Build Your Retirement Money Map?</h3>
-            <p style="font-size: 1.25rem; margin-bottom: 2rem;">Don't wait for retirement to figure out if you're on track.</p>
-            <a href="https://capitalwealth.com" target="_blank" rel="noopener" class="btn btn-secondary btn-large">Schedule Your Consultation</a>
-        </div>
     </div>
 </section>
 
@@ -353,9 +389,11 @@ description: "Retire Right, Retire Now will show you how to turn your savings in
             </div>
             <div class="author-bio animate-in">
                 <h3>Mike Stevens</h3>
-                <p><strong>Mike Stevens</strong> shifted from pre-med to finance after his father Len passed away at 49, inspiring his mission to help families prepare for the unexpected.</p>
-                <p>As founder of Capital Wealth Advisors, Mike is a fiduciary advisor, radio and TV host, and board member dedicated to helping people retire with confidence. He lives in Utah with his family.</p>
+                <p>Michael Stevens is a fiduciary financial advisor and the founder of Capital Wealth Advisors. He's the host of the weekly radio show <strong>Retire Right Radio</strong>, a guest speaker on local news networks, and a trusted voice for individuals and families navigating retirement across the country.</p>
+                <p>He's passionate about helping people bring all the pieces of their financial lives together with clarity and purpose.</p>
+                <p>Beyond his work, he serves as a board member of several nonprofit organizations, teaches at his church, and enjoys mountain adventures with his wife and children — his greatest source of joy.</p>
                 <p><a href="{{ site.author.linkedin }}" target="_blank" rel="noopener">Connect with Mike on LinkedIn</a></p>
+                <p class="author-contact">For PR, speaking opportunities, interviews, or notes of gratitude, <a href="mailto:info@capitalwealth.com">reach out to Mike's team</a>.</p>
             </div>
         </div>
     </div>
@@ -365,7 +403,7 @@ description: "Retire Right, Retire Now will show you how to turn your savings in
 <section class="cta-section">
     <div class="container">
         <div class="cta-centered">
-            <a href="https://capitalwealth.com" target="_blank" rel="noopener" class="btn btn-primary btn-large">Schedule a Consultation</a>
+            <a href="#free-chapter" class="btn btn-secondary btn-large">Get Your Free Chapter</a>
         </div>
     </div>
 </section>
@@ -442,10 +480,11 @@ description: "Retire Right, Retire Now will show you how to turn your savings in
 <!-- Final CTA Band -->
 <section class="final-cta-band">
     <div class="container">
-        <h2>Your Retirement Starts Here</h2>
+        <h2>Because the Right Plan Can Make All the Difference.</h2>
+        <p class="final-cta-subtitle">Whether you're preparing for retirement or already in it, this book will help you make informed decisions with peace of mind.</p>
         <div class="final-cta-buttons">
-            <a href="#get-copy" class="btn btn-secondary btn-large">Get Your Free Chapter</a>
-            <a href="https://capitalwealth.com" target="_blank" rel="noopener" class="btn btn-primary btn-large">Schedule a Consultation</a>
+            <a href="#free-chapter" class="btn btn-secondary btn-large">Get Your Free Chapter</a>
+            <a href="https://capitalwealth.com" target="_blank" rel="noopener" class="btn btn-primary btn-large">Talk to Mike's Team</a>
         </div>
     </div>
 </section>

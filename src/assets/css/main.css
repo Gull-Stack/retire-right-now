@@ -28,7 +28,7 @@ html {
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-family: 'Source Sans 3', 'Myriad Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 1.125rem;
     line-height: 1.7;
     color: var(--text-body);
@@ -43,6 +43,10 @@ body {
 }
 
 /* Typography */
+h1, h2, h3, h4 {
+    font-family: 'Raleway', 'Glacial Indifference', sans-serif;
+}
+
 h1 {
     font-size: 3.5rem;
     font-weight: 700;
@@ -134,6 +138,19 @@ p {
 .btn-large {
     padding: 18px 36px;
     font-size: 1.125rem;
+}
+
+/* Outline Button */
+.btn-outline {
+    background: transparent;
+    color: white;
+    border: 2px solid rgba(255,255,255,0.4);
+}
+
+.btn-outline:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.8);
+    transform: translateY(-2px);
 }
 
 /* Cards */
@@ -338,6 +355,129 @@ main {
 
 .hero-book-img:hover {
     transform: scale(1.03) translateY(-5px);
+}
+
+/* Problem Section (StoryBrand Emotional Hook) */
+.problem-section {
+    background: var(--bg-light);
+    text-align: center;
+    padding: 6rem 0;
+}
+
+.problem-content {
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.problem-content h2 {
+    font-size: 2.25rem;
+    margin-bottom: 2rem;
+    color: var(--text-dark);
+}
+
+.problem-content p {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: var(--text-body);
+}
+
+.problem-content em {
+    color: var(--accent-blue);
+}
+
+.problem-closing {
+    margin-top: 1rem;
+    font-size: 1.25rem;
+}
+
+/* Opt-In Section */
+.optin-section {
+    padding: 5rem 0;
+}
+
+.optin-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.optin-text h2 {
+    margin-bottom: 1rem;
+}
+
+.optin-text p {
+    font-size: 1.125rem;
+    color: var(--text-body);
+}
+
+.trust-signal {
+    font-size: 0.9rem !important;
+    color: #888 !important;
+    margin-top: 0.5rem;
+}
+
+.optin-form-wrap {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    border: 1px solid rgba(0,0,0,0.06);
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid rgba(0,0,0,0.1);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.2s ease;
+    background: var(--bg-warm);
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--accent-blue);
+    background: white;
+}
+
+.btn-full {
+    width: 100%;
+    text-align: center;
+}
+
+.author-contact {
+    font-size: 0.95rem;
+    color: #888;
+    font-style: italic;
+}
+
+.author-contact a {
+    color: var(--accent-blue);
+}
+
+.final-cta-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-muted-dark);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Feature Items */
@@ -870,6 +1010,12 @@ main {
         grid-template-columns: 1fr;
         text-align: center;
         gap: 2rem;
+    }
+    
+    .optin-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
     }
     
     .footer-content {
