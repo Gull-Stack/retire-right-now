@@ -1,0 +1,18 @@
+{
+  "name": "retire-right-now",
+  "version": "1.0.0",
+  "description": "Book landing page for 'Retire Right, Retire Now' by Mike Stevens",
+  "main": "index.js",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve",
+    "start": "npm run serve",
+    "clean": "rm -rf _site"
+  },
+  "keywords": ["retirement", "book", "financial planning", "eleventy"],
+  "author": "Mike Stevens",
+  "license": "MIT",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  }
+}

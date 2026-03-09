@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if title %}{{ title }} | {% endif %}{{ site.title }}</title>
+    <meta name="description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="{% if title %}{{ title }} | {% endif %}{{ site.title }}">
+    <meta property="og:description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
+    <meta property="og:type" content="{% if page.url == '/' %}website{% else %}article{% endif %}">
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+    <meta property="og:site_name" content="{{ site.title }}">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{% if title %}{{ title }} | {% endif %}{{ site.title }}">
+    <meta name="twitter:description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
+    
+    <!-- Google Fonts - Glacial Indifference -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "{{ site.url }}/#website",
+          "url": "{{ site.url }}/",
+          "name": "{{ site.title }}",
+          "description": "{{ site.description }}",
+          "publisher": {
+            "@id": "{{ site.url }}/#person"
+          }
+        },
+        {
+          "@type": "Person",
+          "@id": "{{ site.url }}/#person",
+          "name": "{{ site.author.name }}",
+          "jobTitle": "{{ site.author.title }}",
+          "worksFor": {
+            "@type": "Organization",
+            "name": "{{ site.author.company }}"
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "{{ site.author.location }}"
+          },
+          "sameAs": [
+            "{{ site.author.linkedin }}"
+          ]
+        },
+        {
+          "@type": "Book",
+          "@id": "{{ site.url }}/#book",
+          "name": "{{ site.title }}",
+          "author": {
+            "@id": "{{ site.url }}/#person"
+          },
+          "description": "{{ site.description }}",
+          "isbn": "{{ site.book.isbn }}",
+          "publisher": "{{ site.book.publisher }}",
+          "datePublished": "{{ site.book.publishDate }}",
+          "bookFormat": "{{ site.book.format }}",
+          "numberOfPages": "{{ site.book.pages }}"
+        },
+        {
+          "@type": "Organization",
+          "@id": "{{ site.url }}/#organization",
+          "name": "{{ site.organization.name }}",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "{{ site.organization.address.streetAddress }}",
+            "addressLocality": "{{ site.organization.address.addressLocality }}",
+            "addressRegion": "{{ site.organization.address.addressRegion }}",
+            "postalCode": "{{ site.organization.address.postalCode }}",
+            "addressCountry": "{{ site.organization.address.addressCountry }}"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "{{ site.url }}{{ page.url }}#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "{{ site.url }}/"
+            }
+            {% if page.url != '/' %},
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "{% if title %}{{ title }}{% else %}{{ page.fileSlug | title }}{% endif %}",
+              "item": "{{ site.url }}{{ page.url }}"
+            }
+            {% endif %}
+          ]
+        }
+        {% if page.url == '/' %},
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Who should read this book?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Anyone approaching retirement or already retired who wants clarity on their financial future. If you've been diligent about saving but feel uncertain about your plan, this book is for you."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is this book just theory, or are there actionable steps?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "This book is all about practical action. Each chapter includes specific steps you can take to improve your retirement readiness."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do I need to be wealthy to benefit from this book?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Not at all. The principles apply whether you have $100,000 or $1 million saved. Good planning is about percentages and strategies, not just dollar amounts."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How is this different from other retirement books?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Most retirement books focus on accumulation. This book focuses on the transition—how to turn your savings into sustainable income while managing taxes, healthcare costs, and market volatility."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "When will the book be available?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The book is scheduled for release in Spring 2026. Sign up to get your free chapter and be notified when it's available."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Will there be digital formats available?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, the book will be available in hardcover, paperback, and digital formats to suit your reading preference."
+              }
+            }
+          ]
+        }
+        {% endif %}
+      ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="nav-content">
+                <div class="logo">
+                    <a href="/">
+                        <span class="logo-text">{{ site.title }}</span>
+                    </a>
+                </div>
+                
+                <div class="nav-links">
+                    <a href="#book">The Book</a>
+                    <a href="#author">Author</a>
+                    <a href="#faq">FAQ</a>
+                </div>
+                
+                <a href="#opt-in" class="btn btn-primary">Get Your Free Chapter</a>
+                
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        {{ content | safe }}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-bottom">
+                    <div class="footer-legal">
+                        <p>&copy; 2026 {{ site.author.name }}. All rights reserved.</p>
+                    </div>
+                    
+                    <div class="footer-social">
+                        <a href="{{ site.author.linkedin }}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                        <a href="#" target="_blank" rel="noopener noreferrer">Retire Right Radio</a>
+                    </div>
+                    
+                    <div class="footer-credit">
+                        <p>Built by <a href="https://gullstack.com" target="_blank" rel="noopener noreferrer">GullStack</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>
