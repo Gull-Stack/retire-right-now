@@ -21,7 +21,7 @@
     <meta name="twitter:title" content="Resources | Retire Right, Retire Now">
     <meta name="twitter:description" content="Additional retirement planning resources and tools from Mike Stevens">
     
-    <!-- Google Fonts - Glacial Indifference -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -87,26 +87,6 @@
             "postalCode": "84043",
             "addressCountry": "US"
           }
-        },
-        {
-          "@type": "BreadcrumbList",
-          "@id": "https://retire-right-now.vercel.app/resources/#breadcrumb",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://retire-right-now.vercel.app/"
-            }
-            ,
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "Resources",
-              "item": "https://retire-right-now.vercel.app/resources/"
-            }
-            
-          ]
         }
         
       ]
@@ -115,24 +95,22 @@
 </head>
 <body>
     <!-- Navigation -->
-    <header class="header" id="header">
+    <header class="header">
         <div class="container">
-            <nav class="nav-content">
-                <div class="logo">
-                    <a href="/">
-                        <span class="logo-text">Retire Right, Retire Now</span>
-                    </a>
+            <nav class="nav">
+                <div class="nav-brand">
+                    <a href="/" class="logo">Retire Right, Retire Now</a>
                 </div>
                 
                 <div class="nav-links">
-                    <a href="#book">The Book</a>
-                    <a href="#author">Author</a>
+                    <a href="#framework">The Framework</a>
+                    <a href="#author">About Mike</a>
                     <a href="#faq">FAQ</a>
                 </div>
                 
-                <a href="https://capitalwealth.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Schedule a Consultation</a>
+                <a href="https://capitalwealth.com" target="_blank" rel="noopener" class="btn btn-primary">Schedule Consultation</a>
                 
-                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -167,26 +145,21 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-bottom">
-                    <div class="footer-legal">
-                        <p>&copy; 2026 Mike Stevens. All rights reserved.</p>
-                    </div>
-                    
-                    <div class="footer-social">
-                        <a href="https://capitalwealth.com" target="_blank" rel="noopener noreferrer">Capital Wealth</a>
-                        <a href="https://www.linkedin.com/in/mstevens317/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                        <a href="#" target="_blank" rel="noopener noreferrer">Retire Right Radio</a>
-                    </div>
-                    
-                    <div class="footer-credit">
-                        <p>Built by <a href="https://gullstack.com" target="_blank" rel="noopener noreferrer">GullStack</a></p>
-                    </div>
+                <div class="footer-links">
+                    <a href="https://capitalwealth.com" target="_blank" rel="noopener">Capital Wealth</a>
+                    <a href="https://www.linkedin.com/in/mstevens317/" target="_blank" rel="noopener">LinkedIn</a>
+                    <a href="#" target="_blank" rel="noopener">Retire Right Radio</a>
+                </div>
+                
+                <div class="footer-legal">
+                    <p>&copy; 2026 Mike Stevens. All rights reserved.</p>
+                    <p class="footer-credit">Built by <a href="https://gullstack.com" target="_blank" rel="noopener">GullStack</a></p>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
+    <!-- Scripts -->
     <script src="/assets/js/main.js"></script>
 </body>
 </html>

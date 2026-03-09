@@ -21,7 +21,7 @@
     <meta name="twitter:title" content="{% if title %}{{ title }} | {% endif %}{{ site.title }}">
     <meta name="twitter:description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
     
-    <!-- Google Fonts - Glacial Indifference -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -87,26 +87,6 @@
             "postalCode": "{{ site.organization.address.postalCode }}",
             "addressCountry": "{{ site.organization.address.addressCountry }}"
           }
-        },
-        {
-          "@type": "BreadcrumbList",
-          "@id": "{{ site.url }}{{ page.url }}#breadcrumb",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "{{ site.url }}/"
-            }
-            {% if page.url != '/' %},
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "{% if title %}{{ title }}{% else %}{{ page.fileSlug | title }}{% endif %}",
-              "item": "{{ site.url }}{{ page.url }}"
-            }
-            {% endif %}
-          ]
         }
         {% if page.url == '/' %},
         {
@@ -169,24 +149,22 @@
 </head>
 <body>
     <!-- Navigation -->
-    <header class="header" id="header">
+    <header class="header">
         <div class="container">
-            <nav class="nav-content">
-                <div class="logo">
-                    <a href="/">
-                        <span class="logo-text">{{ site.title }}</span>
-                    </a>
+            <nav class="nav">
+                <div class="nav-brand">
+                    <a href="/" class="logo">{{ site.title }}</a>
                 </div>
                 
                 <div class="nav-links">
-                    <a href="#book">The Book</a>
-                    <a href="#author">Author</a>
+                    <a href="#framework">The Framework</a>
+                    <a href="#author">About Mike</a>
                     <a href="#faq">FAQ</a>
                 </div>
                 
-                <a href="https://capitalwealth.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Schedule a Consultation</a>
+                <a href="https://capitalwealth.com" target="_blank" rel="noopener" class="btn btn-primary">Schedule Consultation</a>
                 
-                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -204,26 +182,21 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-bottom">
-                    <div class="footer-legal">
-                        <p>&copy; 2026 Mike Stevens. All rights reserved.</p>
-                    </div>
-                    
-                    <div class="footer-social">
-                        <a href="https://capitalwealth.com" target="_blank" rel="noopener noreferrer">Capital Wealth</a>
-                        <a href="https://www.linkedin.com/in/mstevens317/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                        <a href="#" target="_blank" rel="noopener noreferrer">Retire Right Radio</a>
-                    </div>
-                    
-                    <div class="footer-credit">
-                        <p>Built by <a href="https://gullstack.com" target="_blank" rel="noopener noreferrer">GullStack</a></p>
-                    </div>
+                <div class="footer-links">
+                    <a href="https://capitalwealth.com" target="_blank" rel="noopener">Capital Wealth</a>
+                    <a href="{{ site.author.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
+                    <a href="#" target="_blank" rel="noopener">Retire Right Radio</a>
+                </div>
+                
+                <div class="footer-legal">
+                    <p>&copy; 2026 Mike Stevens. All rights reserved.</p>
+                    <p class="footer-credit">Built by <a href="https://gullstack.com" target="_blank" rel="noopener">GullStack</a></p>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
+    <!-- Scripts -->
     <script src="/assets/js/main.js"></script>
 </body>
 </html>
