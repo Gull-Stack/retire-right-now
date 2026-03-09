@@ -154,9 +154,9 @@ p {
 
 /* Navigation */
 .header {
-    background: rgba(255,255,255,0.95);
+    background: rgba(13,27,42,0.95);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(0,0,0,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
     position: fixed;
     top: 0;
     left: 0;
@@ -174,7 +174,7 @@ p {
 .logo {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--text-dark);
+    color: white;
     text-decoration: none;
 }
 
@@ -185,7 +185,7 @@ p {
 }
 
 .nav-links a {
-    color: var(--text-body);
+    color: rgba(255,255,255,0.85);
     text-decoration: none;
     font-weight: 500;
     transition: color 0.2s;
@@ -193,7 +193,7 @@ p {
 }
 
 .nav-links a:hover {
-    color: var(--accent-blue);
+    color: white;
 }
 
 .nav-links a::after {
@@ -223,7 +223,7 @@ p {
 .nav-toggle span {
     width: 25px;
     height: 3px;
-    background: var(--text-dark);
+    background: white;
     margin: 3px 0;
     transition: 0.3s;
     border-radius: 2px;
@@ -250,16 +250,7 @@ main {
     position: relative;
 }
 
-.section-dark::before {
-    content: '';
-    position: absolute;
-    top: -50px;
-    left: 0;
-    right: 0;
-    height: 50px;
-    background: var(--bg-dark);
-    clip-path: polygon(0 100%, 100% 0, 100% 100%);
-}
+/* No angled dividers — clean transitions */
 
 .section-dark h2,
 .section-dark h3,
@@ -268,27 +259,40 @@ main {
 }
 
 .chapter-roadmap {
-    background: linear-gradient(rgba(13,27,42,0.7), rgba(13,27,42,0.8)), url('/assets/images/photos/thinking-about-retirement.webp') center/cover;
+    background: var(--bg-warm);
+}
+
+.chapter-roadmap h2 {
+    color: var(--text-dark);
+}
+
+.chapter-roadmap .eyebrow {
+    color: var(--accent-blue);
 }
 
 /* Hero Section */
 .hero {
-    padding: 120px 0 100px;
-    background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(248,246,241,0.95)), url('/assets/images/photos/CWA-Mountain-Couple-home-header.webp') center/cover;
+    padding: 140px 0 100px;
+    background: linear-gradient(135deg, #0d1b2a 0%, #132238 50%, #1b3a5c 100%);
     position: relative;
     overflow: hidden;
+    color: var(--text-on-dark);
 }
 
-.hero::after {
-    content: '';
-    position: absolute;
-    bottom: -50px;
-    left: 0;
-    right: 0;
-    height: 50px;
-    background: var(--bg-warm);
-    clip-path: polygon(0 0, 100% 100%, 100% 0);
+.hero h1 {
+    color: white;
+    font-size: 4rem;
 }
+
+.hero .subtitle {
+    color: rgba(255,255,255,0.85) !important;
+}
+
+.hero .eyebrow {
+    color: var(--accent-yellow);
+}
+
+/* Clean hero bottom edge */
 
 .hero-content {
     display: grid;
@@ -325,15 +329,15 @@ main {
 
 .hero-book-img {
     width: 100%;
-    max-width: 400px;
+    max-width: 550px;
     height: auto;
-    border-radius: 16px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-    transition: transform 0.3s ease;
+    border-radius: 4px;
+    filter: drop-shadow(0 30px 60px rgba(0,0,0,0.3)) drop-shadow(0 10px 20px rgba(0,0,0,0.2));
+    transition: transform 0.4s ease;
 }
 
 .hero-book-img:hover {
-    transform: scale(1.02);
+    transform: scale(1.03) translateY(-5px);
 }
 
 /* Feature Items */
@@ -351,25 +355,33 @@ main {
 
 /* Media Logos */
 .media-logos {
-    background: var(--bg-light);
+    background: var(--bg-dark);
     padding: 4rem 0;
     text-align: center;
 }
 
+.media-logos .eyebrow {
+    color: var(--accent-yellow);
+    opacity: 0.8;
+}
+
 .media-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
     margin-top: 2rem;
     align-items: center;
 }
 
 .media-logo {
-    height: 60px;
+    height: 45px;
     width: auto;
+    max-width: 140px;
     object-fit: contain;
-    opacity: 0.7;
+    opacity: 0.6;
     transition: opacity 0.3s ease;
+    filter: brightness(0) invert(1);
 }
 
 .media-logo:hover {
@@ -422,8 +434,8 @@ main {
 
 /* CTA Sections */
 .cta-section {
-    padding: 3rem 0;
-    background: var(--bg-light);
+    padding: 2.5rem 0;
+    background: inherit;
 }
 
 .cta-centered {
@@ -432,34 +444,13 @@ main {
 
 /* Quote Bands */
 .quote-band {
-    background: linear-gradient(rgba(13,27,42,0.9), rgba(13,27,42,0.95)), url('/assets/images/photos/homepage-mountain-bg.webp') center/cover;
+    background: linear-gradient(135deg, #0d1b2a, #132238);
     color: var(--text-on-dark);
     padding: 5rem 0;
     position: relative;
     text-align: center;
-    margin: 3rem 0;
-}
-
-.quote-band::before {
-    content: '';
-    position: absolute;
-    top: -40px;
-    left: 0;
-    right: 0;
-    height: 40px;
-    background: var(--bg-dark);
-    clip-path: polygon(0 100%, 100% 0, 100% 100%);
-}
-
-.quote-band::after {
-    content: '';
-    position: absolute;
-    bottom: -40px;
-    left: 0;
-    right: 0;
-    height: 40px;
-    background: var(--bg-dark);
-    clip-path: polygon(0 0, 100% 100%, 0 100%);
+    border-top: 4px solid var(--accent-yellow);
+    border-bottom: 4px solid var(--accent-yellow);
 }
 
 .quote-band blockquote {
@@ -542,8 +533,17 @@ main {
 
 /* Testimonials */
 .testimonials {
-    background: linear-gradient(rgba(13,27,42,0.85), rgba(13,27,42,0.9)), url('/assets/images/photos/retirement-ready.webp') center/cover;
+    background: linear-gradient(135deg, #0d1b2a, #132238);
     color: var(--text-on-dark);
+    padding: 6rem 0;
+}
+
+.testimonials h2 {
+    color: white;
+}
+
+.testimonials .eyebrow {
+    color: var(--accent-yellow);
 }
 
 .testimonials-grid {
@@ -613,11 +613,11 @@ main {
 }
 
 .format-image {
-    width: 100px;
+    width: 160px;
     height: auto;
     margin: 0 auto 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border-radius: 4px;
+    filter: drop-shadow(0 8px 20px rgba(0,0,0,0.2));
 }
 
 .format-icon {
@@ -716,16 +716,7 @@ main {
     position: relative;
 }
 
-.final-cta-band::before {
-    content: '';
-    position: absolute;
-    top: -40px;
-    left: 0;
-    right: 0;
-    height: 40px;
-    background: var(--bg-dark);
-    clip-path: polygon(0 100%, 100% 0, 100% 100%);
-}
+/* Clean transition */
 
 .final-cta-band h2 {
     color: var(--text-on-dark);
@@ -886,7 +877,11 @@ main {
     }
     
     .media-grid {
-        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+
+    .media-logo {
+        height: 35px;
     }
 }
 
@@ -939,6 +934,10 @@ main {
     }
     
     .media-grid {
-        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .media-logo {
+        height: 30px;
     }
 }
