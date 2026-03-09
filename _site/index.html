@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | Retire Right, Retire Now</title>
+    <title>Home | Retire Right, Retire Now by Mike Stevens | Your Retirement Money Map</title>
     <meta name="description" content="Retire Right, Retire Now will show you how to turn your savings into a clear, coordinated retirement strategy — so you can stop worrying and start living.">
+    <meta name="author" content="Michael Stevens">
+    <meta name="keywords" content="retirement planning, retire right, retirement book, fiduciary advisor, retirement income, tax planning retirement, Mike Stevens, Capital Wealth">
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://retire-right-now.vercel.app/">
@@ -43,105 +45,161 @@
           "@id": "https://retire-right-now.vercel.app/#website",
           "url": "https://retire-right-now.vercel.app/",
           "name": "Retire Right, Retire Now",
-          "description": "You&#39;ve saved in your 401(k). You paid off the house. You did what you were told. But now you&#39;re staring at a pile of accounts, wondering: Is it enough? Will it last? What am I forgetting? &#39;Retire Right, Retire Now&#39; answers those questions — clearly, honestly, and without the jargon.",
+          "description": "Turn your savings into a clear retirement strategy. Learn the five-pillar Retirement Money Map framework from fiduciary advisor Mike Stevens.",
           "publisher": {
             "@id": "https://retire-right-now.vercel.app/#person"
+          },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://retire-right-now.vercel.app/search?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
           }
         },
         {
           "@type": "Person",
           "@id": "https://retire-right-now.vercel.app/#person",
-          "name": "Mike Stevens",
+          "name": "Michael Stevens",
+          "alternateName": "Mike Stevens",
           "jobTitle": "President of Capital Wealth Advisors",
+          "description": "Fiduciary financial advisor, founder of Capital Wealth Advisors, host of Retire Right Radio, with 25+ years experience in retirement planning",
+          "knowsAbout": ["Retirement Planning", "Income Planning", "Tax-Efficient Withdrawal", "Healthcare Cost Planning", "Estate Planning", "Legacy Planning", "Fiduciary Advice"],
           "worksFor": {
-            "@type": "Organization",
-            "name": "Capital Wealth Advisors"
+            "@id": "https://retire-right-now.vercel.app/#capitalwealth"
           },
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Lehi, UT"
+            "addressLocality": "Lehi",
+            "addressRegion": "Utah"
           },
           "sameAs": [
-            "https://www.linkedin.com/in/mstevens317/"
+            "https://www.linkedin.com/in/mstevens317/",
+            "https://capitalwealth.com/radio/"
+          ],
+          "hasCredential": [
+            {
+              "@type": "EducationalOccupationalCredential",
+              "credentialCategory": "Professional Certification",
+              "name": "Fiduciary Financial Advisor"
+            }
           ]
         },
         {
           "@type": "Book",
           "@id": "https://retire-right-now.vercel.app/#book",
           "name": "Retire Right, Retire Now",
+          "alternativeHeadline": "Your Retirement Money Map",
           "author": {
             "@id": "https://retire-right-now.vercel.app/#person"
           },
-          "description": "You&#39;ve saved in your 401(k). You paid off the house. You did what you were told. But now you&#39;re staring at a pile of accounts, wondering: Is it enough? Will it last? What am I forgetting? &#39;Retire Right, Retire Now&#39; answers those questions — clearly, honestly, and without the jargon.",
-          "isbn": "TBD-2026",
-          "publisher": "TBD",
+          "description": "Turn your savings into a clear retirement strategy. Learn the five-pillar Retirement Money Map framework from practicing fiduciary advisor Mike Stevens.",
+          "publisher": {
+            "@id": "https://retire-right-now.vercel.app/#publisher"
+          },
           "datePublished": "2026-04-01",
-          "bookFormat": "Hardcover, Paperback, Digital",
-          "numberOfPages": "TBD"
+          "bookFormat": "EBook",
+          "additionalProperty": [
+            {
+              "@type": "PropertyValue", 
+              "name": "Target Audience",
+              "value": "Pre-retirees within 10 years of retirement, Recently retired individuals, People with savings but no coordinated plan"
+            }
+          ],
+          "about": [
+            "Retirement Planning",
+            "Income Planning", 
+            "Tax-Efficient Withdrawal",
+            "Healthcare Cost Planning",
+            "Estate Planning"
+          ],
+          "genre": "Personal Finance",
+          "inLanguage": "en-US"
         },
         {
           "@type": "Organization",
-          "@id": "https://retire-right-now.vercel.app/#organization",
+          "@id": "https://retire-right-now.vercel.app/#capitalwealth",
           "name": "Capital Wealth Advisors",
+          "url": "https://capitalwealth.com",
+          "logo": "https://capitalwealth.com/logo.png",
+          "description": "Fiduciary financial advisory firm specializing in retirement planning",
           "address": {
             "@type": "PostalAddress",
-            "streetAddress": "TBD Street",
             "addressLocality": "Lehi",
             "addressRegion": "UT",
-            "postalCode": "84043",
+            "addressCountry": "US"
+          },
+          "founder": {
+            "@id": "https://retire-right-now.vercel.app/#person"
+          },
+          "areaServed": "United States",
+          "serviceType": "Financial Advisory Services"
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://retire-right-now.vercel.app/#publisher",
+          "name": "Capital Wealth Media, LLC",
+          "description": "Publishing company for financial education content",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Lehi",
+            "addressRegion": "UT", 
             "addressCountry": "US"
           }
-        }
-        ,
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://retire-right-now.vercel.app"
+            }
+          ]
+        },
         {
           "@type": "FAQPage",
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "Who should read this book?",
+              "name": "What will I learn from Retire Right, Retire Now?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Anyone approaching retirement or already retired who wants clarity on their financial future. If you've been diligent about saving but feel uncertain about your plan, this book is for you."
+                "text": "You'll learn the five-pillar Retirement Money Map framework, including how to create reliable income streams, plan for healthcare costs, optimize taxes in retirement, protect against market volatility, design your estate plan, and ensure your money lasts throughout retirement."
+              }
+            },
+            {
+              "@type": "Question", 
+              "name": "Who is Retire Right, Retire Now for?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "This book is for pre-retirees within 10 years of retirement, recently retired individuals, people with savings but no coordinated plan, and families seeking financial clarity. Whether you have $100,000 or $1 million saved, the principles apply."
               }
             },
             {
               "@type": "Question",
-              "name": "Is this book just theory, or are there actionable steps?",
+              "name": "Who is Mike Stevens?", 
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "This book is all about practical action. Each chapter includes specific steps you can take to improve your retirement readiness."
+                "text": "Mike Stevens is a fiduciary financial advisor, President of Capital Wealth Advisors, and host of Retire Right Radio. With 25+ years of experience, he helps people transition from accumulation to distribution in retirement planning."
               }
             },
             {
               "@type": "Question",
-              "name": "Do I need to be wealthy to benefit from this book?",
+              "name": "When will Retire Right, Retire Now be available?",
               "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Not at all. The principles apply whether you have $100,000 or $1 million saved. Good planning is about percentages and strategies, not just dollar amounts."
+                "@type": "Answer", 
+                "text": "Retire Right, Retire Now is scheduled for release in Spring 2026. You can get your free chapter now and be notified when the full book is available."
               }
             },
             {
               "@type": "Question",
-              "name": "How is this different from other retirement books?",
+              "name": "Is this book only for wealthy people?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Most retirement books focus on accumulation. This book focuses on the transition—how to turn your savings into sustainable income while managing taxes, healthcare costs, and market volatility."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "When will the book be available?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "The book is scheduled for release in Spring 2026. Sign up to get your free chapter and be notified when it's available."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Will there be digital formats available?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes, the book will be available in hardcover, paperback, and digital formats to suit your reading preference."
+                "text": "No, the principles in Retire Right, Retire Now apply at any savings level. Good retirement planning is about percentages and strategies, not just dollar amounts. Whether you have $100,000 or $1 million saved, you'll benefit from the framework."
               }
             }
           ]
@@ -187,13 +245,13 @@
             <div class="hero-text">
                 <h1 class="animate-in">Retire Right, Retire Now</h1>
                 <div class="tagline animate-in">A Portfolio Is Not a Plan.</div>
-                <p class="subtitle animate-in">Turn your savings into a clear, coordinated retirement strategy — so you can stop worrying and start living.</p>
+                <p class="subtitle animate-in">Retire Right, Retire Now shows you how to turn your savings into a clear, coordinated retirement planning strategy — so you can stop worrying and start living.</p>
                 <div class="hero-cta animate-in">
                     <a href="#ready-to-act" class="btn btn-secondary btn-large">Get Your Free Chapter</a>
                 </div>
             </div>
             <div class="hero-book">
-                <img src="/assets/images/book/book-tablet-mockup.png" alt="Retire Right, Retire Now by Mike Stevens" class="hero-book-img animate-in">
+                <img src="/assets/images/book/book-tablet-mockup.png" alt="Retire Right Retire Now book by Mike Stevens - retirement planning guide" class="hero-book-img animate-in">
             </div>
         </div>
     </div>
@@ -298,7 +356,7 @@
         <h2 class="animate-in" style="text-align: center;">About the Author</h2>
         <div class="author-content">
             <div class="author-photo">
-                <img src="/assets/images/photos/mike-author.jpg" alt="Mike Stevens" class="author-img animate-in">
+                <img src="/assets/images/photos/mike-author.jpg" alt="Michael Stevens, fiduciary financial advisor and author of Retire Right Retire Now" class="author-img animate-in">
             </div>
             <div class="author-bio animate-in">
                 <h3>Michael Stevens</h3>

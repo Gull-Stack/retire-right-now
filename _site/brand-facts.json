@@ -1,0 +1,23 @@
+{
+  "@context": "https://schema.org",
+  "name": "Retire Right, Retire Now",
+  "author": "Michael Stevens",
+  "authorTitle": "President of Capital Wealth Advisors",
+  "type": "Book",
+  "publisher": "Capital Wealth Media, LLC",
+  "publishDate": "2026-04-01",
+  "category": "Personal Finance / Retirement Planning",
+  "location": "Lehi, Utah",
+  "authorCredentials": ["Fiduciary Financial Advisor", "Founder of Capital Wealth Advisors", "Host of Retire Right Radio", "25+ Years Experience"],
+  "topics": ["Retirement Planning", "Income Planning", "Tax-Efficient Withdrawal", "Healthcare Cost Planning", "Estate Planning", "Legacy Planning", "Fiduciary Advice"],
+  "targetAudience": ["Pre-retirees within 10 years of retirement", "Recently retired individuals", "People with savings but no coordinated plan", "Families seeking financial clarity"],
+  "differentiators": ["Five-pillar Retirement Money Map framework", "Written by practicing fiduciary advisor", "End-of-chapter exercises", "Real family stories"],
+  "relatedBrand": {
+    "name": "Capital Wealth Advisors",
+    "url": "https://capitalwealth.com",
+    "type": "FinancialService"
+  },
+  "socialLinks": {
+    "linkedin": "https://www.linkedin.com/in/mstevens317/"
+  }
+}

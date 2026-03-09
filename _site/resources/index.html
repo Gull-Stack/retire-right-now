@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resources | Retire Right, Retire Now</title>
+    <title>Resources | Retire Right, Retire Now by Mike Stevens | Your Retirement Money Map</title>
     <meta name="description" content="Additional retirement planning resources and tools from Mike Stevens">
+    <meta name="author" content="Michael Stevens">
+    <meta name="keywords" content="retirement planning, retire right, retirement book, fiduciary advisor, retirement income, tax planning retirement, Mike Stevens, Capital Wealth">
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://retire-right-now.vercel.app/resources/">
@@ -43,56 +45,126 @@
           "@id": "https://retire-right-now.vercel.app/#website",
           "url": "https://retire-right-now.vercel.app/",
           "name": "Retire Right, Retire Now",
-          "description": "You&#39;ve saved in your 401(k). You paid off the house. You did what you were told. But now you&#39;re staring at a pile of accounts, wondering: Is it enough? Will it last? What am I forgetting? &#39;Retire Right, Retire Now&#39; answers those questions — clearly, honestly, and without the jargon.",
+          "description": "Turn your savings into a clear retirement strategy. Learn the five-pillar Retirement Money Map framework from fiduciary advisor Mike Stevens.",
           "publisher": {
             "@id": "https://retire-right-now.vercel.app/#person"
+          },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://retire-right-now.vercel.app/search?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
           }
         },
         {
           "@type": "Person",
           "@id": "https://retire-right-now.vercel.app/#person",
-          "name": "Mike Stevens",
+          "name": "Michael Stevens",
+          "alternateName": "Mike Stevens",
           "jobTitle": "President of Capital Wealth Advisors",
+          "description": "Fiduciary financial advisor, founder of Capital Wealth Advisors, host of Retire Right Radio, with 25+ years experience in retirement planning",
+          "knowsAbout": ["Retirement Planning", "Income Planning", "Tax-Efficient Withdrawal", "Healthcare Cost Planning", "Estate Planning", "Legacy Planning", "Fiduciary Advice"],
           "worksFor": {
-            "@type": "Organization",
-            "name": "Capital Wealth Advisors"
+            "@id": "https://retire-right-now.vercel.app/#capitalwealth"
           },
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Lehi, UT"
+            "addressLocality": "Lehi",
+            "addressRegion": "Utah"
           },
           "sameAs": [
-            "https://www.linkedin.com/in/mstevens317/"
+            "https://www.linkedin.com/in/mstevens317/",
+            "https://capitalwealth.com/radio/"
+          ],
+          "hasCredential": [
+            {
+              "@type": "EducationalOccupationalCredential",
+              "credentialCategory": "Professional Certification",
+              "name": "Fiduciary Financial Advisor"
+            }
           ]
         },
         {
           "@type": "Book",
           "@id": "https://retire-right-now.vercel.app/#book",
           "name": "Retire Right, Retire Now",
+          "alternativeHeadline": "Your Retirement Money Map",
           "author": {
             "@id": "https://retire-right-now.vercel.app/#person"
           },
-          "description": "You&#39;ve saved in your 401(k). You paid off the house. You did what you were told. But now you&#39;re staring at a pile of accounts, wondering: Is it enough? Will it last? What am I forgetting? &#39;Retire Right, Retire Now&#39; answers those questions — clearly, honestly, and without the jargon.",
-          "isbn": "TBD-2026",
-          "publisher": "TBD",
+          "description": "Turn your savings into a clear retirement strategy. Learn the five-pillar Retirement Money Map framework from practicing fiduciary advisor Mike Stevens.",
+          "publisher": {
+            "@id": "https://retire-right-now.vercel.app/#publisher"
+          },
           "datePublished": "2026-04-01",
-          "bookFormat": "Hardcover, Paperback, Digital",
-          "numberOfPages": "TBD"
+          "bookFormat": "EBook",
+          "additionalProperty": [
+            {
+              "@type": "PropertyValue", 
+              "name": "Target Audience",
+              "value": "Pre-retirees within 10 years of retirement, Recently retired individuals, People with savings but no coordinated plan"
+            }
+          ],
+          "about": [
+            "Retirement Planning",
+            "Income Planning", 
+            "Tax-Efficient Withdrawal",
+            "Healthcare Cost Planning",
+            "Estate Planning"
+          ],
+          "genre": "Personal Finance",
+          "inLanguage": "en-US"
         },
         {
           "@type": "Organization",
-          "@id": "https://retire-right-now.vercel.app/#organization",
+          "@id": "https://retire-right-now.vercel.app/#capitalwealth",
           "name": "Capital Wealth Advisors",
+          "url": "https://capitalwealth.com",
+          "logo": "https://capitalwealth.com/logo.png",
+          "description": "Fiduciary financial advisory firm specializing in retirement planning",
           "address": {
             "@type": "PostalAddress",
-            "streetAddress": "TBD Street",
             "addressLocality": "Lehi",
             "addressRegion": "UT",
-            "postalCode": "84043",
+            "addressCountry": "US"
+          },
+          "founder": {
+            "@id": "https://retire-right-now.vercel.app/#person"
+          },
+          "areaServed": "United States",
+          "serviceType": "Financial Advisory Services"
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://retire-right-now.vercel.app/#publisher",
+          "name": "Capital Wealth Media, LLC",
+          "description": "Publishing company for financial education content",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Lehi",
+            "addressRegion": "UT", 
             "addressCountry": "US"
           }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://retire-right-now.vercel.app"
+            },
+            {
+              "@type": "ListItem", 
+              "position": 2,
+              "name": "Resources",
+              "item": "https://retire-right-now.vercel.app/resources/"
+            }
+          ]
         }
-        
       ]
     }
     </script>

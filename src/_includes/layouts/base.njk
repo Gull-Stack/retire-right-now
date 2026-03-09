@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% if title %}{{ title }} | {% endif %}{{ site.title }}</title>
-    <meta name="description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
+    <title>{% if title %}{{ title }} | {% endif %}Retire Right, Retire Now by Mike Stevens | Your Retirement Money Map</title>
+    <meta name="description" content="{% if description %}{{ description }}{% else %}Turn your savings into a clear retirement strategy. Learn the five-pillar Retirement Money Map framework from fiduciary advisor Mike Stevens.{% endif %}">
+    <meta name="author" content="Michael Stevens">
+    <meta name="keywords" content="retirement planning, retire right, retirement book, fiduciary advisor, retirement income, tax planning retirement, Mike Stevens, Capital Wealth">
     
     <!-- Canonical URL -->
     <link rel="canonical" href="{{ site.url }}{{ page.url }}">
@@ -43,105 +45,167 @@
           "@id": "{{ site.url }}/#website",
           "url": "{{ site.url }}/",
           "name": "{{ site.title }}",
-          "description": "{{ site.description }}",
+          "description": "Turn your savings into a clear retirement strategy. Learn the five-pillar Retirement Money Map framework from fiduciary advisor Mike Stevens.",
           "publisher": {
             "@id": "{{ site.url }}/#person"
+          },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "{{ site.url }}/search?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
           }
         },
         {
           "@type": "Person",
           "@id": "{{ site.url }}/#person",
-          "name": "{{ site.author.name }}",
-          "jobTitle": "{{ site.author.title }}",
+          "name": "Michael Stevens",
+          "alternateName": "Mike Stevens",
+          "jobTitle": "President of Capital Wealth Advisors",
+          "description": "Fiduciary financial advisor, founder of Capital Wealth Advisors, host of Retire Right Radio, with 25+ years experience in retirement planning",
+          "knowsAbout": ["Retirement Planning", "Income Planning", "Tax-Efficient Withdrawal", "Healthcare Cost Planning", "Estate Planning", "Legacy Planning", "Fiduciary Advice"],
           "worksFor": {
-            "@type": "Organization",
-            "name": "{{ site.author.company }}"
+            "@id": "{{ site.url }}/#capitalwealth"
           },
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "{{ site.author.location }}"
+            "addressLocality": "Lehi",
+            "addressRegion": "Utah"
           },
           "sameAs": [
-            "{{ site.author.linkedin }}"
+            "{{ site.author.linkedin }}",
+            "https://capitalwealth.com/radio/"
+          ],
+          "hasCredential": [
+            {
+              "@type": "EducationalOccupationalCredential",
+              "credentialCategory": "Professional Certification",
+              "name": "Fiduciary Financial Advisor"
+            }
           ]
         },
         {
           "@type": "Book",
           "@id": "{{ site.url }}/#book",
-          "name": "{{ site.title }}",
+          "name": "Retire Right, Retire Now",
+          "alternativeHeadline": "Your Retirement Money Map",
           "author": {
             "@id": "{{ site.url }}/#person"
           },
-          "description": "{{ site.description }}",
-          "isbn": "{{ site.book.isbn }}",
-          "publisher": "{{ site.book.publisher }}",
-          "datePublished": "{{ site.book.publishDate }}",
-          "bookFormat": "{{ site.book.format }}",
-          "numberOfPages": "{{ site.book.pages }}"
+          "description": "Turn your savings into a clear retirement strategy. Learn the five-pillar Retirement Money Map framework from practicing fiduciary advisor Mike Stevens.",
+          "publisher": {
+            "@id": "{{ site.url }}/#publisher"
+          },
+          "datePublished": "2026-04-01",
+          "bookFormat": "EBook",
+          "additionalProperty": [
+            {
+              "@type": "PropertyValue", 
+              "name": "Target Audience",
+              "value": "Pre-retirees within 10 years of retirement, Recently retired individuals, People with savings but no coordinated plan"
+            }
+          ],
+          "about": [
+            "Retirement Planning",
+            "Income Planning", 
+            "Tax-Efficient Withdrawal",
+            "Healthcare Cost Planning",
+            "Estate Planning"
+          ],
+          "genre": "Personal Finance",
+          "inLanguage": "en-US"
         },
         {
           "@type": "Organization",
-          "@id": "{{ site.url }}/#organization",
-          "name": "{{ site.organization.name }}",
+          "@id": "{{ site.url }}/#capitalwealth",
+          "name": "Capital Wealth Advisors",
+          "url": "https://capitalwealth.com",
+          "logo": "https://capitalwealth.com/logo.png",
+          "description": "Fiduciary financial advisory firm specializing in retirement planning",
           "address": {
             "@type": "PostalAddress",
-            "streetAddress": "{{ site.organization.address.streetAddress }}",
-            "addressLocality": "{{ site.organization.address.addressLocality }}",
-            "addressRegion": "{{ site.organization.address.addressRegion }}",
-            "postalCode": "{{ site.organization.address.postalCode }}",
-            "addressCountry": "{{ site.organization.address.addressCountry }}"
+            "addressLocality": "Lehi",
+            "addressRegion": "UT",
+            "addressCountry": "US"
+          },
+          "founder": {
+            "@id": "{{ site.url }}/#person"
+          },
+          "areaServed": "United States",
+          "serviceType": "Financial Advisory Services"
+        },
+        {
+          "@type": "Organization",
+          "@id": "{{ site.url }}/#publisher",
+          "name": "Capital Wealth Media, LLC",
+          "description": "Publishing company for financial education content",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Lehi",
+            "addressRegion": "UT", 
+            "addressCountry": "US"
           }
-        }
-        {% if page.url == '/' %},
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "{{ site.url }}"
+            }{% if page.url != '/' %},
+            {
+              "@type": "ListItem", 
+              "position": 2,
+              "name": "{% if title %}{{ title }}{% else %}{{ page.fileSlug | title }}{% endif %}",
+              "item": "{{ site.url }}{{ page.url }}"
+            }{% endif %}
+          ]
+        }{% if page.url == '/' %},
         {
           "@type": "FAQPage",
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "Who should read this book?",
+              "name": "What will I learn from Retire Right, Retire Now?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Anyone approaching retirement or already retired who wants clarity on their financial future. If you've been diligent about saving but feel uncertain about your plan, this book is for you."
+                "text": "You'll learn the five-pillar Retirement Money Map framework, including how to create reliable income streams, plan for healthcare costs, optimize taxes in retirement, protect against market volatility, design your estate plan, and ensure your money lasts throughout retirement."
+              }
+            },
+            {
+              "@type": "Question", 
+              "name": "Who is Retire Right, Retire Now for?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "This book is for pre-retirees within 10 years of retirement, recently retired individuals, people with savings but no coordinated plan, and families seeking financial clarity. Whether you have $100,000 or $1 million saved, the principles apply."
               }
             },
             {
               "@type": "Question",
-              "name": "Is this book just theory, or are there actionable steps?",
+              "name": "Who is Mike Stevens?", 
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "This book is all about practical action. Each chapter includes specific steps you can take to improve your retirement readiness."
+                "text": "Mike Stevens is a fiduciary financial advisor, President of Capital Wealth Advisors, and host of Retire Right Radio. With 25+ years of experience, he helps people transition from accumulation to distribution in retirement planning."
               }
             },
             {
               "@type": "Question",
-              "name": "Do I need to be wealthy to benefit from this book?",
+              "name": "When will Retire Right, Retire Now be available?",
               "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Not at all. The principles apply whether you have $100,000 or $1 million saved. Good planning is about percentages and strategies, not just dollar amounts."
+                "@type": "Answer", 
+                "text": "Retire Right, Retire Now is scheduled for release in Spring 2026. You can get your free chapter now and be notified when the full book is available."
               }
             },
             {
               "@type": "Question",
-              "name": "How is this different from other retirement books?",
+              "name": "Is this book only for wealthy people?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Most retirement books focus on accumulation. This book focuses on the transition—how to turn your savings into sustainable income while managing taxes, healthcare costs, and market volatility."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "When will the book be available?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "The book is scheduled for release in Spring 2026. Sign up to get your free chapter and be notified when it's available."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Will there be digital formats available?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes, the book will be available in hardcover, paperback, and digital formats to suit your reading preference."
+                "text": "No, the principles in Retire Right, Retire Now apply at any savings level. Good retirement planning is about percentages and strategies, not just dollar amounts. Whether you have $100,000 or $1 million saved, you'll benefit from the framework."
               }
             }
           ]
