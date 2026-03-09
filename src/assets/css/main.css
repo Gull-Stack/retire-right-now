@@ -262,7 +262,7 @@ main {
 }
 
 .section-dark {
-    background: linear-gradient(rgba(13,27,42,0.85), rgba(13,27,42,0.9)), url('/assets/images/photos/already-retired.webp') center 30%/cover;
+    background: linear-gradient(rgba(13,27,42,0.75), rgba(13,27,42,0.85)), url('/assets/images/photos/retired-couple.jpg') center/cover;
     color: var(--text-on-dark);
     position: relative;
 }
