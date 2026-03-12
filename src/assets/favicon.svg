@@ -1,3 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <text y="28" x="2" font-size="28">🐷</text>
+  <rect x="4" y="3" width="20" height="26" rx="2" fill="#1a2332"/>
+  <rect x="6" y="5" width="16" height="22" rx="1" fill="#f6c547"/>
+  <rect x="4" y="3" width="5" height="26" rx="1" fill="#c4942e"/>
+  <line x1="10" y1="10" x2="20" y2="10" stroke="#1a2332" stroke-width="1.5"/>
+  <line x1="10" y1="14" x2="18" y2="14" stroke="#1a2332" stroke-width="1"/>
+  <line x1="10" y1="17" x2="16" y2="17" stroke="#1a2332" stroke-width="1"/>
 </svg>
