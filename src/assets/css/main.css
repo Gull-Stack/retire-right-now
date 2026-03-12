@@ -105,8 +105,8 @@ p {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: var(--accent-yellow);
-    border: 2px solid var(--accent-yellow);
+    color: #4da6ff;
+    border: 2px solid #4da6ff;
     padding: 0.4rem 1.25rem;
     border-radius: 4px;
     margin-bottom: 1.25rem;
@@ -858,7 +858,7 @@ main {
     margin-bottom: 1rem;
 }
 
-.coming-soon {
+.format-card .coming-soon {
     color: var(--accent-yellow);
     font-weight: 600;
     margin-top: 1rem;
@@ -962,25 +962,31 @@ main {
 .footer {
     background: var(--bg-dark);
     color: var(--text-on-dark);
-    padding: 3rem 0;
+    padding: 2.5rem 0;
+    border-top: 1px solid rgba(255,255,255,0.08);
 }
 
 .footer-content {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 2rem;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.footer-row {
+    display: flex;
+    justify-content: center;
 }
 
 .footer-links {
     display: flex;
     gap: 2rem;
+    justify-content: center;
 }
 
 .footer-links a {
     color: var(--text-on-dark);
     text-decoration: none;
+    font-size: 0.95rem;
     transition: color 0.2s;
 }
 
@@ -988,19 +994,43 @@ main {
     color: var(--accent-yellow);
 }
 
-.footer-legal {
-    text-align: center;
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
 }
 
-.footer-credit {
-    margin-top: 0.5rem;
-    font-size: 0.9rem;
+.footer-copyright {
+    font-size: 0.875rem;
     color: var(--text-muted-dark);
+    margin: 0;
 }
 
-.footer-credit a {
-    color: var(--accent-yellow);
+.footer-credit-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     text-decoration: none;
+    color: var(--text-muted-dark);
+    font-size: 0.875rem;
+    transition: color 0.2s;
+}
+
+.footer-credit-link:hover {
+    color: var(--accent-yellow);
+}
+
+.gullstack-logo {
+    height: 24px;
+    width: auto;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.footer-credit-link:hover .gullstack-logo {
+    opacity: 1;
 }
 
 /* Float Animation (book bounce) */
@@ -1114,9 +1144,10 @@ main {
         text-align: center;
     }
     
-    .footer-content {
+    .footer-bottom {
         flex-direction: column;
         text-align: center;
+        gap: 1rem;
     }
     
     .media-grid {
@@ -1340,6 +1371,9 @@ main {
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
+    background: var(--bg-dark);
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
 }
 
 .media-logo-label {
@@ -1348,7 +1382,7 @@ main {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    color: #999;
+    color: rgba(255,255,255,0.6);
     margin-bottom: 1.25rem;
 }
 
@@ -1363,14 +1397,13 @@ main {
 .media-logo {
     height: 28px;
     width: auto;
-    opacity: 0.45;
-    filter: grayscale(100%);
-    transition: opacity 0.3s ease, filter 0.3s ease;
+    opacity: 0.85;
+    filter: brightness(0) invert(1);
+    transition: opacity 0.3s ease;
 }
 
 .media-logo:hover {
-    opacity: 0.8;
-    filter: grayscale(0%);
+    opacity: 1;
 }
 
 .author-bio h3 {
@@ -1407,7 +1440,7 @@ main {
 
 .ready-section h2 {
     color: var(--text-on-dark);
-    text-align: center;
+    text-align: left;
     margin-bottom: 1rem;
 }
 
@@ -1451,10 +1484,10 @@ main {
 .optin-form input {
     width: 100%;
     padding: 1rem;
-    border: 1px solid rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.3);
     border-radius: 6px;
-    background: rgba(255,255,255,0.1);
-    color: var(--text-on-dark);
+    background: rgba(255,255,255,0.15);
+    color: #ffffff;
     font-size: 1rem;
 }
 
@@ -1465,6 +1498,7 @@ main {
 .optin-form input:focus {
     outline: none;
     border-color: var(--accent-yellow);
+    background: rgba(255,255,255,0.2);
     box-shadow: 0 0 0 2px rgba(255,217,112,0.2);
 }
 
