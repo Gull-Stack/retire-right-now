@@ -270,5 +270,37 @@
 
     <!-- Scripts -->
     <script src="/assets/js/main.js"></script>
+    <script>
+    (function() {
+      var form = document.getElementById('chapterForm');
+      if (!form) return;
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        var btn = form.querySelector('button[type="submit"]');
+        var origText = btn.textContent;
+        btn.textContent = 'Sending...';
+        btn.disabled = true;
+        try {
+          var res = await fetch('/api/subscribe', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              first_name: form.querySelector('[name="first_name"]').value,
+              email: form.querySelector('[name="email"]').value
+            })
+          });
+          if (res.ok) {
+            form.innerHTML = '<div style="text-align:center;padding:2rem 0"><h3 style="color:#f6c547;margin-bottom:0.5rem">You\'re on the list!</h3><p style="color:rgba(255,255,255,0.8)">Check your email for a confirmation from Mike.</p></div>';
+          } else {
+            throw new Error('fail');
+          }
+        } catch(err) {
+          alert('Something went wrong. Please try again.');
+          btn.textContent = origText;
+          btn.disabled = false;
+        }
+      });
+    })();
+    </script>
 </body>
 </html>

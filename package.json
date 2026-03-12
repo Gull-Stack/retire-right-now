@@ -9,10 +9,18 @@
     "start": "npm run serve",
     "clean": "rm -rf _site"
   },
-  "keywords": ["retirement", "book", "financial planning", "eleventy"],
+  "keywords": [
+    "retirement",
+    "book",
+    "financial planning",
+    "eleventy"
+  ],
   "author": "Mike Stevens",
   "license": "MIT",
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1"
+  },
+  "dependencies": {
+    "@sendgrid/mail": "^8.1.0"
   }
 }
