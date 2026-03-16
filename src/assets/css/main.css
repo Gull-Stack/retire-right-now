@@ -380,7 +380,7 @@ main {
 
 .hero-book-img {
     width: 100%;
-    max-width: 840px;
+    max-width: 1092px;
     height: auto;
     border-radius: 4px;
     filter: drop-shadow(0 30px 60px rgba(0,0,0,0.3)) drop-shadow(0 10px 20px rgba(0,0,0,0.2));
