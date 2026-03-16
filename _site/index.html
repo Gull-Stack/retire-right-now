@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
     <title>Home | Retire Right, Retire Now by Mike Stevens | Your Retirement Money Map</title>
     <meta name="description" content="Retire Right, Retire Now will show you how to turn your savings into a clear, coordinated retirement strategy — so you can stop worrying and start living.">
     <meta name="author" content="Michael Stevens">
@@ -224,7 +228,7 @@
                     <a href="#ready-to-act">Get Free Chapter</a>
                 </div>
                 
-                <a href="#free-chapter" class="btn btn-secondary">Get Free Chapter</a>
+                <a href="#ready-to-act" class="btn btn-secondary">Get Free Chapter</a>
                 
                 <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
                     <span></span>
@@ -254,6 +258,32 @@
             <div class="hero-book">
                 <img src="/assets/images/book/book-tablet-mockup.png" alt="Retire Right Retire Now book by Mike Stevens - retirement planning guide" class="hero-book-img animate-in">
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- AVAILABLE AT — Retailer logos bar -->
+<section class="retailer-bar">
+    <div class="retailer-bar-inner">
+        <div class="retailer-logos">
+            <a href="#" class="retailer-link" title="Amazon">
+                <img src="/assets/images/retailers/amazon.png" alt="Amazon" class="retailer-logo">
+            </a>
+            <a href="#" class="retailer-link" title="Walmart">
+                <img src="/assets/images/retailers/walmart.svg" alt="Walmart" class="retailer-logo">
+            </a>
+            <a href="#" class="retailer-link" title="Rakuten Kobo">
+                <img src="/assets/images/retailers/rakuten-kobo.svg" alt="Rakuten Kobo" class="retailer-logo">
+            </a>
+            <a href="#" class="retailer-link" title="Barnes & Noble">
+                <img src="/assets/images/retailers/barnes-noble.svg" alt="Barnes & Noble" class="retailer-logo">
+            </a>
+            <a href="#" class="retailer-link" title="Google Play">
+                <img src="/assets/images/retailers/google-play.png" alt="Google Play" class="retailer-logo">
+            </a>
+            <a href="#" class="retailer-link" title="Apple Books">
+                <img src="/assets/images/retailers/apple-books.svg" alt="Apple Books" class="retailer-logo">
+            </a>
         </div>
     </div>
 </section>
@@ -353,14 +383,14 @@
 <!-- 4. ABOUT THE AUTHOR -->
 <section id="author" class="section section-warm author-section">
     <div class="container">
-        <div class="eyebrow eyebrow-centered eyebrow-lg">ABOUT THE AUTHOR</div>
         <div class="author-content author-refactored">
             <div class="author-photo">
                 <img src="/assets/images/photos/mike-author.jpg" alt="Michael Stevens, fiduciary financial advisor and author of Retire Right Retire Now" class="author-img-square animate-in">
             </div>
             <div class="author-bio animate-in">
+                <div class="eyebrow eyebrow-lg" style="text-align: left; margin-bottom: 0.75rem;">ABOUT THE AUTHOR</div>
                 <h3>Michael Stevens</h3>
-                <p>Michael Stevens is a fiduciary financial advisor and the founder of Capital Wealth Advisors. He's the host of the weekly radio show Retire Right Radio, a guest speaker on local news networks, and a trusted voice for individuals and families navigating retirement across the country. He's passionate about helping people bring all the pieces of their financial lives together with clarity and purpose.</p>
+                <p>Michael Stevens is a fiduciary financial advisor and the founder of Capital Wealth. He's the host of the weekly radio show Retire Right Radio, a guest speaker on local news networks, and a trusted voice for individuals and families navigating retirement across the country. He's passionate about helping people bring all the pieces of their financial lives together with clarity and purpose.</p>
                 <p><a href="https://www.linkedin.com/in/mstevens317/" target="_blank" rel="noopener">Connect with Mike on LinkedIn</a></p>
                 <div class="author-stats">
                     <div class="author-stat">
@@ -379,14 +409,15 @@
             </div>
         </div>
         <!-- Media Credibility Logos -->
-        <div class="media-logos animate-in">
-            <span class="media-logo-label">As Featured On</span>
-            <div class="media-logos-row">
-                <img src="/assets/images/media/abc-news.svg" alt="ABC News" class="media-logo">
-                <img src="/assets/images/media/fox-news.svg" alt="Fox News" class="media-logo">
-                <img src="/assets/images/media/nbc-news.svg" alt="NBC News" class="media-logo">
-                <img src="/assets/images/media/cbs-news.svg" alt="CBS News" class="media-logo">
-                <img src="/assets/images/media/forbes.svg" alt="Forbes" class="media-logo">
+        <div class="media-bar animate-in">
+            <span class="media-bar-label">AS SEEN <em>and</em> HEARD ON:</span>
+            <div class="media-bar-logos">
+                <img src="/assets/images/media/ksl.png" alt="KSL NewsRadio 102.7 FM" class="media-logo">
+                <img src="/assets/images/media/fortune.png" alt="Fortune" class="media-logo">
+                <img src="/assets/images/media/kslcom.png" alt="KSL.com" class="media-logo">
+                <img src="/assets/images/media/knrs-2.png" alt="KNRS" class="media-logo">
+                <img src="/assets/images/media/newstalk.png" alt="NewsTalk 107.9" class="media-logo">
+                <img src="/assets/images/media/KIDLogo-small.png" alt="KID 590 / 92.1 / 106.3" class="media-logo">
             </div>
         </div>
     </div>
@@ -402,7 +433,7 @@
                 <p>Get your free chapter and be the first to know when the book is available.</p>
             </div>
             <div class="optin-form-wrap">
-                <form class="optin-form" id="chapterForm" action="#" method="POST">
+                <form class="optin-form" id="chapterForm" action="javascript:void(0)">
                     <div class="form-group">
                         <label for="optin-name">First Name</label>
                         <input type="text" id="optin-name" name="first_name" placeholder="Your first name" required>
@@ -423,6 +454,29 @@
                 </p>
             </div>
         </div>
+    </div>
+</section>
+
+<!-- CTA TRIO — Capital Wealth, LinkedIn, Retire Right Radio -->
+<section class="footer-trio-section">
+    <div class="footer-trio">
+        <a href="https://capitalwealth.com" target="_blank" rel="noopener" class="footer-trio-col">
+            <img src="/assets/images/cw-logo-white.png" alt="Capital Wealth" class="footer-trio-logo">
+            <span class="footer-trio-label">capitalwealth.com</span>
+            <span class="footer-trio-arrow">→</span>
+        </a>
+        <a href="https://www.linkedin.com/in/mstevens317/" target="_blank" rel="noopener" class="footer-trio-col">
+            <svg class="footer-trio-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            <span class="footer-trio-name">Mike Stevens</span>
+            <span class="footer-trio-label">Connect on LinkedIn</span>
+            <span class="footer-trio-arrow">→</span>
+        </a>
+        <a href="https://capitalwealth.com/radio/" target="_blank" rel="noopener" class="footer-trio-col">
+            <svg class="footer-trio-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1C5.925 1 1 5.925 1 12s4.925 11 11 11 11-4.925 11-11S18.075 1 12 1zm4.5 15.5l-5-3V7h1.5v5.8l4.25 2.55-.75 1.15z"/></svg>
+            <span class="footer-trio-name">Retire Right Radio</span>
+            <span class="footer-trio-label">Listen Now</span>
+            <span class="footer-trio-arrow">→</span>
+        </a>
     </div>
 </section>
 
@@ -448,7 +502,7 @@
             <details class="faq-item">
                 <summary style="font-weight: 600; padding: 1rem; cursor: pointer; border: 1px solid #e2e8f0; margin-bottom: 0.5rem; border-radius: 4px;">Who is Mike Stevens?</summary>
                 <div style="padding: 1rem; background: #f8fafc; border: 1px solid #e2e8f0; border-top: none; margin-top: -0.5rem; border-radius: 0 0 4px 4px;">
-                    <p>Mike Stevens is a fiduciary financial advisor, President of Capital Wealth Advisors, and host of Retire Right Radio. With 25+ years of experience, he helps people transition from accumulation to distribution in retirement planning.</p>
+                    <p>Mike Stevens is a fiduciary financial advisor, President of Capital Wealth, and host of Retire Right Radio. With 25+ years of experience, he helps people transition from accumulation to distribution in retirement planning.</p>
                 </div>
             </details>
             
@@ -472,23 +526,48 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-links">
-                    <a href="https://capitalwealth.com" target="_blank" rel="noopener">Capital Wealth</a>
-                    <a href="https://www.linkedin.com/in/mstevens317/" target="_blank" rel="noopener">LinkedIn</a>
-                    <a href="https://capitalwealth.com/radio/" target="_blank" rel="noopener">Retire Right Radio</a>
-                </div>
-                
-                <div class="footer-legal">
-                    <p>&copy; 2026 Capital Wealth Media, LLC. All rights reserved.</p>
-                    <p class="footer-credit">Built by <a href="https://gullstack.com" target="_blank" rel="noopener">GullStack</a></p>
-                </div>
-            </div>
+        <div class="footer-bottom-bar">
+            <p class="footer-copyright">&copy; 2026 Capital Wealth Media, LLC. All rights reserved.</p>
+            <a href="https://gullstack.com" target="_blank" rel="noopener" class="footer-credit-link">
+                <img src="https://gullstack.com/gull-logo.png" alt="GullStack" class="gullstack-logo">
+                <span>Built by GullStack</span>
+            </a>
         </div>
     </footer>
 
     <!-- Scripts -->
     <script src="/assets/js/main.js"></script>
+    <script>
+    (function() {
+      var form = document.getElementById('chapterForm');
+      if (!form) return;
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        var btn = form.querySelector('button[type="submit"]');
+        var origText = btn.textContent;
+        btn.textContent = 'Sending...';
+        btn.disabled = true;
+        try {
+          var res = await fetch('/api/subscribe', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              first_name: form.querySelector('[name="first_name"]').value,
+              email: form.querySelector('[name="email"]').value
+            })
+          });
+          if (res.ok) {
+            form.innerHTML = '<div style="text-align:center;padding:2rem 0"><h3 style="color:#f6c547;margin-bottom:0.5rem">You\'re on the list!</h3><p style="color:rgba(255,255,255,0.8)">Check your email for a confirmation from Mike.</p></div>';
+          } else {
+            throw new Error('fail');
+          }
+        } catch(err) {
+          alert('Something went wrong. Please try again.');
+          btn.textContent = origText;
+          btn.disabled = false;
+        }
+      });
+    })();
+    </script>
 </body>
 </html>

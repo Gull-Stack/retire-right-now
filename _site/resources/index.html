@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
     <title>Resources | Retire Right, Retire Now by Mike Stevens | Your Retirement Money Map</title>
     <meta name="description" content="Additional retirement planning resources and tools from Mike Stevens">
     <meta name="author" content="Michael Stevens">
@@ -184,7 +188,7 @@
                     <a href="#ready-to-act">Get Free Chapter</a>
                 </div>
                 
-                <a href="#free-chapter" class="btn btn-secondary">Get Free Chapter</a>
+                <a href="#ready-to-act" class="btn btn-secondary">Get Free Chapter</a>
                 
                 <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
                     <span></span>
@@ -219,23 +223,48 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-links">
-                    <a href="https://capitalwealth.com" target="_blank" rel="noopener">Capital Wealth</a>
-                    <a href="https://www.linkedin.com/in/mstevens317/" target="_blank" rel="noopener">LinkedIn</a>
-                    <a href="https://capitalwealth.com/radio/" target="_blank" rel="noopener">Retire Right Radio</a>
-                </div>
-                
-                <div class="footer-legal">
-                    <p>&copy; 2026 Capital Wealth Media, LLC. All rights reserved.</p>
-                    <p class="footer-credit">Built by <a href="https://gullstack.com" target="_blank" rel="noopener">GullStack</a></p>
-                </div>
-            </div>
+        <div class="footer-bottom-bar">
+            <p class="footer-copyright">&copy; 2026 Capital Wealth Media, LLC. All rights reserved.</p>
+            <a href="https://gullstack.com" target="_blank" rel="noopener" class="footer-credit-link">
+                <img src="https://gullstack.com/gull-logo.png" alt="GullStack" class="gullstack-logo">
+                <span>Built by GullStack</span>
+            </a>
         </div>
     </footer>
 
     <!-- Scripts -->
     <script src="/assets/js/main.js"></script>
+    <script>
+    (function() {
+      var form = document.getElementById('chapterForm');
+      if (!form) return;
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        var btn = form.querySelector('button[type="submit"]');
+        var origText = btn.textContent;
+        btn.textContent = 'Sending...';
+        btn.disabled = true;
+        try {
+          var res = await fetch('/api/subscribe', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              first_name: form.querySelector('[name="first_name"]').value,
+              email: form.querySelector('[name="email"]').value
+            })
+          });
+          if (res.ok) {
+            form.innerHTML = '<div style="text-align:center;padding:2rem 0"><h3 style="color:#f6c547;margin-bottom:0.5rem">You\'re on the list!</h3><p style="color:rgba(255,255,255,0.8)">Check your email for a confirmation from Mike.</p></div>';
+          } else {
+            throw new Error('fail');
+          }
+        } catch(err) {
+          alert('Something went wrong. Please try again.');
+          btn.textContent = origText;
+          btn.disabled = false;
+        }
+      });
+    })();
+    </script>
 </body>
 </html>
