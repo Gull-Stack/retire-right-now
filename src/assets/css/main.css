@@ -1726,3 +1726,8 @@ main {
         height: 28px;
     }
 }
+
+/* Footer trio as in-page section (above FAQ) */
+.footer-trio-section {
+    background: var(--bg-dark, #0d1b2a);
+}
