@@ -1681,75 +1681,46 @@ main {
    RETAILER BAR — Available At (under hero)
    ═══════════════════════════════════════════ */
 .retailer-bar {
-    background: #f5f5f5;
-    padding: 1.5rem 2rem;
+    background: #fff;
+    padding: 2.5rem 2rem;
     border-top: 1px solid rgba(0,0,0,0.06);
-    border-bottom: 1px solid rgba(0,0,0,0.06);
 }
 .retailer-bar-inner {
-    max-width: 1100px;
+    max-width: 900px;
     margin: 0 auto;
-    display: flex;
-    align-items: center;
-    gap: 2.5rem;
-}
-.retailer-bar-label {
-    font-size: 0.72rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: #999;
-    white-space: nowrap;
-    flex-shrink: 0;
 }
 .retailer-logos {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex: 1;
-    gap: 2rem;
+    gap: 2.5rem;
     flex-wrap: wrap;
 }
 .retailer-link {
     text-decoration: none;
     color: #333;
-    opacity: 0.65;
+    opacity: 0.7;
     transition: opacity 0.2s ease;
 }
 .retailer-link:hover {
     opacity: 1;
 }
 .retailer-logo {
-    height: 22px;
+    height: 28px;
     width: auto;
 }
-.retailer-amazon {
-    width: 90px;
-    height: auto;
-}
-.retailer-text-logo {
-    font-size: 0.95rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    line-height: 1.1;
-    text-align: center;
-    display: inline-block;
-}
-.retailer-text-logo small {
-    font-size: 0.7em;
-    font-weight: 400;
-}
-.retailer-text-sm {
-    font-size: 0.85rem;
-    font-weight: 600;
+.retailer-logo-tall {
+    height: 40px;
 }
 @media (max-width: 768px) {
-    .retailer-bar-inner {
-        flex-direction: column;
-        gap: 1rem;
-    }
     .retailer-logos {
         justify-content: center;
-        gap: 1.5rem;
+        gap: 2rem;
+    }
+    .retailer-logo {
+        height: 22px;
+    }
+    .retailer-logo-tall {
+        height: 32px;
     }
 }
