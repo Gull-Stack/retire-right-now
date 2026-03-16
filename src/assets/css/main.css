@@ -1323,6 +1323,8 @@ main {
 /* Author Section */
 .author-section {
     background: var(--bg-warm);
+    padding-top: 3rem;
+    padding-bottom: 0;
 }
 
 .author-content {
@@ -1330,7 +1332,7 @@ main {
     grid-template-columns: 200px 1fr;
     gap: 3rem;
     align-items: start;
-    margin-top: 3rem;
+    margin-top: 1.5rem;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
@@ -1372,7 +1374,7 @@ main {
 
 /* Full-width media bar — label left, logos right */
 .media-bar {
-    margin-top: 3rem;
+    margin-top: 0;
     background: #4a90b8;
     padding: 1.25rem 2.5rem;
     border-radius: 0;
