@@ -1351,13 +1351,14 @@ main {
 
 /* Refactored author layout (CTO Refactor style) */
 .author-refactored {
-    grid-template-columns: 280px 1fr;
+    grid-template-columns: 300px 1fr;
     max-width: 900px;
+    align-items: center;
 }
 
 .author-img-square {
-    width: 280px;
-    height: 320px;
+    width: 100%;
+    height: 360px;
     border-radius: 12px;
     object-fit: cover;
     object-position: center 20%;
