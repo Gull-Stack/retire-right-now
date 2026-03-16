@@ -1323,8 +1323,8 @@ main {
 /* Author Section */
 .author-section {
     background: #ffffff;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding-top: 0;
+    padding-bottom: 0;
     margin-bottom: 0;
 }
 .author-section + .ready-section,
@@ -1337,7 +1337,7 @@ main {
     grid-template-columns: 200px 1fr;
     gap: 3rem;
     align-items: start;
-    margin-top: 1.5rem;
+    margin-top: 0;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
