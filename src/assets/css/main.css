@@ -1372,7 +1372,7 @@ main {
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
-    background: var(--bg-dark);
+    background: #3a8bc7;
     padding: 2.5rem 2rem;
     border-radius: 12px;
 }
@@ -1396,10 +1396,9 @@ main {
 }
 
 .media-logo {
-    height: 28px;
+    height: 32px;
     width: auto;
-    opacity: 0.85;
-    filter: brightness(0) invert(1);
+    opacity: 0.9;
     transition: opacity 0.3s ease;
 }
 
