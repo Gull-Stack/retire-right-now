@@ -1325,6 +1325,11 @@ main {
     background: var(--bg-warm);
     padding-top: 3rem;
     padding-bottom: 0;
+    margin-bottom: 0;
+}
+.author-section + .ready-section,
+.author-section + section {
+    margin-top: 0;
 }
 
 .author-content {
@@ -1442,6 +1447,8 @@ main {
     color: var(--text-on-dark);
     position: relative;
     overflow: hidden;
+    padding-top: 4rem;
+    margin-top: -1px;
 }
 
 .ready-section .eyebrow {
