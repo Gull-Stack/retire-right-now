@@ -379,8 +379,8 @@ main {
 }
 
 .hero-book-img {
-    width: 100%;
-    max-width: 1529px;
+    width: 120%;
+    max-width: none;
     height: auto;
     border-radius: 4px;
     filter: drop-shadow(0 30px 60px rgba(0,0,0,0.3)) drop-shadow(0 10px 20px rgba(0,0,0,0.2));
@@ -1692,9 +1692,9 @@ main {
 .retailer-logos {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     gap: 2.5rem;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 .retailer-link {
     text-decoration: none;
@@ -1708,21 +1708,22 @@ main {
     filter: grayscale(0%);
 }
 .retailer-logo {
-    height: 28px;
+    height: 24px;
     width: auto;
 }
 .retailer-logo-tall {
-    height: 40px;
+    height: 34px;
 }
 @media (max-width: 768px) {
     .retailer-logos {
+        flex-wrap: wrap;
         justify-content: center;
-        gap: 2rem;
+        gap: 1.5rem;
     }
     .retailer-logo {
-        height: 22px;
+        height: 20px;
     }
     .retailer-logo-tall {
-        height: 32px;
+        height: 28px;
     }
 }
