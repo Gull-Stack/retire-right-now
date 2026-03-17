@@ -1379,20 +1379,18 @@ main {
     display: none;
 }
 
-/* Media bar — centered within author section */
+/* Media bar — full-width credibility banner */
 .media-bar {
     margin-top: 2.5rem;
     background: #4a90b8;
     padding: 1.5rem 2.5rem;
-    border-radius: 12px;
+    border-radius: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
 }
 .media-bar-label {
     font-size: 0.75rem;
