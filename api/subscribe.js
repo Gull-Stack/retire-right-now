@@ -8,16 +8,50 @@ module.exports = async (req, res) => {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   try {
-    const { first_name, email, fax_number } = req.body;
+    const { first_name, email, fax_number, _loadedAt } = req.body;
 
-    // Honeypot
+    // --- SPAM PROTECTION ---
+
+    // 1. Honeypot: bots fill hidden fields, humans don't
     if (fax_number) {
+      // Silently accept so bots think it worked
       return res.status(200).json({ ok: true });
     }
 
-    if (!email) {
+    // 2. Timing check: reject submissions faster than 3 seconds (bots are instant)
+    if (_loadedAt) {
+      const elapsed = Date.now() - parseInt(_loadedAt, 10);
+      if (elapsed < 3000) {
+        // Too fast — likely a bot
+        return res.status(200).json({ ok: true });
+      }
+    }
+
+    // 3. Basic email validation
+    if (!email || typeof email !== 'string') {
       return res.status(400).json({ error: 'Email is required' });
     }
+
+    const emailTrimmed = email.trim().toLowerCase();
+
+    // 4. Reject obviously fake/disposable patterns
+    const disposableDomains = ['mailinator.com', 'guerrillamail.com', 'tempmail.com', 'throwaway.email', 'yopmail.com', 'sharklasers.com', 'grr.la', 'guerrillamailblock.com', 'fakeinbox.com', 'trashmail.com'];
+    const domain = emailTrimmed.split('@')[1];
+    if (disposableDomains.includes(domain)) {
+      return res.status(200).json({ ok: true });
+    }
+
+    // 5. Reject if email doesn't look valid
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(emailTrimmed)) {
+      return res.status(400).json({ error: 'Invalid email address' });
+    }
+
+    // 6. Rate limit by IP (basic — log for monitoring)
+    const clientIP = req.headers['x-forwarded-for'] || req.headers['x-real-ip'] || 'unknown';
+    console.log(`[subscribe] IP=${clientIP} email=${emailTrimmed} name=${first_name || 'none'}`);
+
+    // --- END SPAM PROTECTION ---
 
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
@@ -25,7 +59,7 @@ module.exports = async (req, res) => {
     await sgMail.send({
       to: 'bryce@gullstack.com',
       from: { email: 'leads@gullstack.com', name: 'Retire Right Book' },
-      subject: `📖 New Chapter Request: ${first_name || 'Someone'} (${email})`,
+      subject: `📖 New Chapter Request: ${first_name || 'Someone'} (${emailTrimmed})`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <div style="background: linear-gradient(135deg, #1a2332, #2d3748); padding: 30px; text-align: center;">
@@ -34,7 +68,8 @@ module.exports = async (req, res) => {
           <div style="padding: 30px; background: #f9f9f9;">
             <table style="width: 100%; border-collapse: collapse;">
               <tr><td style="padding: 10px; border-bottom: 1px solid #ddd;"><strong>Name:</strong></td><td style="padding: 10px; border-bottom: 1px solid #ddd;">${first_name || 'Not provided'}</td></tr>
-              <tr><td style="padding: 10px; border-bottom: 1px solid #ddd;"><strong>Email:</strong></td><td style="padding: 10px; border-bottom: 1px solid #ddd;"><a href="mailto:${email}">${email}</a></td></tr>
+              <tr><td style="padding: 10px; border-bottom: 1px solid #ddd;"><strong>Email:</strong></td><td style="padding: 10px; border-bottom: 1px solid #ddd;"><a href="mailto:${emailTrimmed}">${emailTrimmed}</a></td></tr>
+              <tr><td style="padding: 10px; border-bottom: 1px solid #ddd;"><strong>IP:</strong></td><td style="padding: 10px; border-bottom: 1px solid #ddd;">${clientIP}</td></tr>
             </table>
           </div>
           <div style="background: #1a2332; padding: 15px; text-align: center;">
@@ -42,12 +77,12 @@ module.exports = async (req, res) => {
           </div>
         </div>
       `,
-      replyTo: email,
+      replyTo: emailTrimmed,
     });
 
     // Auto-reply to subscriber
     await sgMail.send({
-      to: email,
+      to: emailTrimmed,
       from: { email: 'leads@gullstack.com', name: 'Mike Stevens' },
       subject: "You're on the list — Retire Right, Retire Now",
       html: `
