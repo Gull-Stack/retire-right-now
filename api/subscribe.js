@@ -1,5 +1,36 @@
 const sgMail = require('@sendgrid/mail');
 
+// Salesforce Web-to-Lead — same OID as capitalwealth.com
+const SF_OID = '00DDm0000011JUMMA2';
+
+async function syncToSalesforce({ firstName, email, source }) {
+  try {
+    const params = new URLSearchParams();
+    params.append('oid', SF_OID);
+    params.append('retURL', 'https://retirerightbook.com/');
+    params.append('first_name', firstName || '');
+    params.append('last_name', '(Book Lead)');
+    params.append('email', email);
+    params.append('lead_source', 'Retire Right Book');
+    params.append('description', `Free chapter request from ${source || 'retirerightbook.com'}`);
+    params.append('Campaign_ID', '701VS00000dB91aYAC');
+
+    const response = await fetch(
+      'https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8',
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: params.toString(),
+      }
+    );
+    console.log(`[salesforce] Web-to-Lead sync: ${response.ok ? 'OK' : response.status}`);
+    return response.ok;
+  } catch (e) {
+    console.error('[salesforce] Web-to-Lead sync failed:', e.message);
+    return false;
+  }
+}
+
 module.exports = async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -14,7 +45,6 @@ module.exports = async (req, res) => {
 
     // 1. Honeypot: bots fill hidden fields, humans don't
     if (fax_number) {
-      // Silently accept so bots think it worked
       return res.status(200).json({ ok: true });
     }
 
@@ -22,7 +52,6 @@ module.exports = async (req, res) => {
     if (_loadedAt) {
       const elapsed = Date.now() - parseInt(_loadedAt, 10);
       if (elapsed < 3000) {
-        // Too fast — likely a bot
         return res.status(200).json({ ok: true });
       }
     }
@@ -53,6 +82,13 @@ module.exports = async (req, res) => {
 
     // --- END SPAM PROTECTION ---
 
+    // Sync to Salesforce Web-to-Lead (fire-and-forget)
+    syncToSalesforce({
+      firstName: first_name || '',
+      email: emailTrimmed,
+      source: 'retirerightbook.com',
+    }).catch(err => console.error('[salesforce] async error:', err.message));
+
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
     // Notify Bryce (lead notification)
@@ -73,7 +109,7 @@ module.exports = async (req, res) => {
             </table>
           </div>
           <div style="background: #1a2332; padding: 15px; text-align: center;">
-            <p style="color: #888; margin: 0; font-size: 12px;">Lead from retirerightbook.com</p>
+            <p style="color: #888; margin: 0; font-size: 12px;">Lead from retirerightbook.com — also synced to Salesforce</p>
           </div>
         </div>
       `,
