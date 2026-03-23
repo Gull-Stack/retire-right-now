@@ -152,7 +152,7 @@ module.exports = async (req, res) => {
 
     return res.status(200).json({ ok: true });
   } catch (error) {
-    console.error('Subscribe error:', error);
-    return res.status(500).json({ error: 'Something went wrong' });
+    console.error('Subscribe error:', error?.response?.body || error?.message || error);
+    return res.status(500).json({ error: 'Something went wrong', detail: error?.message || 'unknown' });
   }
 };
