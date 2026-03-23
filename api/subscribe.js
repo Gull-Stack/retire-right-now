@@ -1,34 +1,48 @@
 const sgMail = require('@sendgrid/mail');
+const https = require('https');
 
 // Salesforce Web-to-Lead — same OID as capitalwealth.com
 const SF_OID = '00DDm0000011JUMMA2';
 
-async function syncToSalesforce({ firstName, email, source }) {
-  try {
-    const params = new URLSearchParams();
-    params.append('oid', SF_OID);
-    params.append('retURL', 'https://retirerightbook.com/');
-    params.append('first_name', firstName || '');
-    params.append('last_name', '(Book Lead)');
-    params.append('email', email);
-    params.append('lead_source', 'Retire Right Book');
-    params.append('description', `Free chapter request from ${source || 'retirerightbook.com'}`);
-    params.append('Campaign_ID', '701VS00000dB91aYAC');
+function syncToSalesforce({ firstName, email, source }) {
+  return new Promise((resolve) => {
+    try {
+      const params = new URLSearchParams();
+      params.append('oid', SF_OID);
+      params.append('retURL', 'https://retirerightbook.com/');
+      params.append('first_name', firstName || '');
+      params.append('last_name', '(Book Lead)');
+      params.append('email', email);
+      params.append('lead_source', 'Retire Right Book');
+      params.append('description', `Free chapter request from ${source || 'retirerightbook.com'}`);
+      params.append('Campaign_ID', '701VS00000dB91aYAC');
 
-    const response = await fetch(
-      'https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8',
-      {
+      const postData = params.toString();
+      const options = {
+        hostname: 'webto.salesforce.com',
+        path: '/servlet/servlet.WebToLead?encoding=UTF-8',
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: params.toString(),
-      }
-    );
-    console.log(`[salesforce] Web-to-Lead sync: ${response.ok ? 'OK' : response.status}`);
-    return response.ok;
-  } catch (e) {
-    console.error('[salesforce] Web-to-Lead sync failed:', e.message);
-    return false;
-  }
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Content-Length': Buffer.byteLength(postData),
+        },
+      };
+
+      const req = https.request(options, (res) => {
+        console.log(`[salesforce] Web-to-Lead sync: ${res.statusCode}`);
+        resolve(res.statusCode < 400);
+      });
+      req.on('error', (e) => {
+        console.error('[salesforce] Web-to-Lead sync failed:', e.message);
+        resolve(false);
+      });
+      req.write(postData);
+      req.end();
+    } catch (e) {
+      console.error('[salesforce] Web-to-Lead sync failed:', e.message);
+      resolve(false);
+    }
+  });
 }
 
 module.exports = async (req, res) => {
