@@ -1,5 +1,6 @@
-const sgMail = require('@sendgrid/mail');
 const https = require('https');
+
+const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY;
 
 // Salesforce Web-to-Lead — same OID as capitalwealth.com
 const SF_OID = '00DDm0000011JUMMA2';
@@ -45,6 +46,50 @@ function syncToSalesforce({ firstName, email, source }) {
   });
 }
 
+async function sendEmail({ to, from, fromName, subject, html, replyTo }) {
+  if (!SENDGRID_API_KEY) {
+    console.warn('[email] No SENDGRID_API_KEY — skipping email');
+    return false;
+  }
+  try {
+    const payload = JSON.stringify({
+      personalizations: [{ to: [{ email: to }] }],
+      from: { email: from, name: fromName || 'Capital Wealth' },
+      reply_to: replyTo ? { email: replyTo } : undefined,
+      subject,
+      content: [{ type: 'text/html', value: html }],
+    });
+
+    const response = await new Promise((resolve, reject) => {
+      const req = https.request({
+        hostname: 'api.sendgrid.com',
+        path: '/v3/mail/send',
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${SENDGRID_API_KEY}`,
+          'Content-Type': 'application/json',
+          'Content-Length': Buffer.byteLength(payload),
+        },
+      }, (res) => {
+        let body = '';
+        res.on('data', (chunk) => body += chunk);
+        res.on('end', () => resolve({ ok: res.statusCode < 400, status: res.statusCode, body }));
+      });
+      req.on('error', reject);
+      req.write(payload);
+      req.end();
+    });
+
+    if (!response.ok) {
+      console.error(`[email] SendGrid error ${response.status}: ${response.body}`);
+    }
+    return response.ok;
+  } catch (e) {
+    console.error('[email] SendGrid send failed:', e.message);
+    return false;
+  }
+}
+
 module.exports = async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -56,44 +101,30 @@ module.exports = async (req, res) => {
     const { first_name, email, fax_number, _loadedAt } = req.body;
 
     // --- SPAM PROTECTION ---
+    if (fax_number) return res.status(200).json({ ok: true });
 
-    // 1. Honeypot: bots fill hidden fields, humans don't
-    if (fax_number) {
-      return res.status(200).json({ ok: true });
-    }
-
-    // 2. Timing check: reject submissions faster than 3 seconds (bots are instant)
     if (_loadedAt) {
       const elapsed = Date.now() - parseInt(_loadedAt, 10);
-      if (elapsed < 3000) {
-        return res.status(200).json({ ok: true });
-      }
+      if (elapsed < 3000) return res.status(200).json({ ok: true });
     }
 
-    // 3. Basic email validation
     if (!email || typeof email !== 'string') {
       return res.status(400).json({ error: 'Email is required' });
     }
 
     const emailTrimmed = email.trim().toLowerCase();
 
-    // 4. Reject obviously fake/disposable patterns
     const disposableDomains = ['mailinator.com', 'guerrillamail.com', 'tempmail.com', 'throwaway.email', 'yopmail.com', 'sharklasers.com', 'grr.la', 'guerrillamailblock.com', 'fakeinbox.com', 'trashmail.com'];
     const domain = emailTrimmed.split('@')[1];
-    if (disposableDomains.includes(domain)) {
-      return res.status(200).json({ ok: true });
-    }
+    if (disposableDomains.includes(domain)) return res.status(200).json({ ok: true });
 
-    // 5. Reject if email doesn't look valid
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(emailTrimmed)) {
       return res.status(400).json({ error: 'Invalid email address' });
     }
 
-    // 6. Rate limit by IP (basic — log for monitoring)
     const clientIP = req.headers['x-forwarded-for'] || req.headers['x-real-ip'] || 'unknown';
     console.log(`[subscribe] IP=${clientIP} email=${emailTrimmed} name=${first_name || 'none'}`);
-
     // --- END SPAM PROTECTION ---
 
     // Sync to Salesforce Web-to-Lead (fire-and-forget)
@@ -103,12 +134,11 @@ module.exports = async (req, res) => {
       source: 'retirerightbook.com',
     }).catch(err => console.error('[salesforce] async error:', err.message));
 
-    sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-
-    // Notify Bryce (lead notification)
-    await sgMail.send({
+    // Notify Bryce (lead notification) — non-blocking
+    await sendEmail({
       to: 'bryce@gullstack.com',
-      from: { email: 'leads@gullstack.com', name: 'Retire Right Book' },
+      from: 'leads@gullstack.com',
+      fromName: 'Retire Right Book',
       subject: `📖 New Chapter Request: ${first_name || 'Someone'} (${emailTrimmed})`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -130,10 +160,11 @@ module.exports = async (req, res) => {
       replyTo: emailTrimmed,
     });
 
-    // Auto-reply to subscriber
-    await sgMail.send({
+    // Auto-reply to subscriber — non-blocking
+    await sendEmail({
       to: emailTrimmed,
-      from: { email: 'leads@gullstack.com', name: 'Mike Stevens' },
+      from: 'leads@gullstack.com',
+      fromName: 'Mike Stevens',
       subject: "You're on the list — Retire Right, Retire Now",
       html: `
         <div style="font-family: Georgia, serif; max-width: 600px; margin: 0 auto; color: #333;">
@@ -152,7 +183,8 @@ module.exports = async (req, res) => {
 
     return res.status(200).json({ ok: true });
   } catch (error) {
-    console.error('Subscribe error:', error?.response?.body || error?.message || error);
-    return res.status(500).json({ error: 'Something went wrong', detail: error?.message || 'unknown' });
+    console.error('Subscribe error:', error?.message || error);
+    // Still return ok — Salesforce sync already fired, don't lose the lead
+    return res.status(200).json({ ok: true });
   }
 };
