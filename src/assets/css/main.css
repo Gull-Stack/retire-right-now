@@ -366,10 +366,11 @@ p {
 }
 
 /* Balance individual logo sizes */
-.retailer-link[title="Rakuten Kobo"] .retailer-logo { height: 22px; }
-.retailer-link[title="Waterstones"] .retailer-logo { height: 20px; }
+.retailer-link[title="Rakuten Kobo"] .retailer-logo { height: 32px; }
+.retailer-link[title="Waterstones"] .retailer-logo { height: 22px; }
 .retailer-link[title="Amazon"] .retailer-logo { height: 26px; }
-.retailer-link[title="Booktopia"] .retailer-logo { height: 22px; }
+.retailer-link[title="Barnes & Noble"] .retailer-logo { height: 24px; }
+.retailer-link[title="Booktopia"] .retailer-logo { height: 26px; }
 
 /* Curated Roadmap Section */
 .roadmap-section {
