@@ -1,19 +1,20 @@
-/* CSS Variables */
+/* CSS Variables — Capital Wealth Brand Colors */
 :root {
     --bg-light: #ffffff;
-    --bg-warm: #f8f6f1;
-    --bg-dark: #0d1b2a;
-    --bg-dark-alt: #132238;
-    --accent-blue: #0073C4;
-    --accent-blue-hover: #005a9e;
-    --accent-yellow: #FFD970;
-    --accent-yellow-hover: #f0c850;
-    --text-dark: #1a1a2e;
+    --bg-warm: #f0f1f3;              /* Light Grey */
+    --bg-dark: #0F1A2A;              /* Ink Black */
+    --bg-dark-alt: #16253C;          /* Prussian Blue — primary brand */
+    --accent-blue: #57A5F4;          /* Cool Horizon — secondary CTA & accent */
+    --accent-blue-hover: #3d8fe0;
+    --accent-yellow: #FDD25E;        /* Mustard — primary CTA & accent */
+    --accent-yellow-hover: #e6bc45;
+    --brand-grey: #7b868C;           /* Brand Grey — PANTONE 430 C */
+    --text-dark: #0F1A2A;            /* Ink Black */
     --text-body: #444;
     --text-on-dark: #e8e8e8;
     --text-muted-dark: rgba(255,255,255,0.7);
-    --glow-blue: rgba(0,115,196,0.2);
-    --glow-yellow: rgba(255,217,112,0.15);
+    --glow-blue: rgba(87,165,244,0.2);
+    --glow-yellow: rgba(253,210,94,0.15);
 }
 
 /* Reset & Base Styles */
