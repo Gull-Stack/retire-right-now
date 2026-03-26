@@ -11,6 +11,15 @@
     <meta name="description" content="Additional retirement planning resources and tools from Mike Stevens">
     <meta name="author" content="Michael Stevens">
     <meta name="keywords" content="retirement planning, retire right, retirement book, fiduciary advisor, retirement income, tax planning retirement, Mike Stevens, Capital Wealth">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L4QDZPJ6H9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-L4QDZPJ6H9');
+    </script>
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://retire-right-now.vercel.app/resources/">
@@ -238,6 +247,9 @@
     (function() {
       var form = document.getElementById('chapterForm');
       if (!form) return;
+      // Record page load time for timing-based spam check
+      var loadedAt = form.querySelector('[name="_loadedAt"]');
+      if (loadedAt) loadedAt.value = Date.now().toString();
       form.addEventListener('submit', async function(e) {
         e.preventDefault();
         var btn = form.querySelector('button[type="submit"]');
@@ -250,7 +262,9 @@
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
               first_name: form.querySelector('[name="first_name"]').value,
-              email: form.querySelector('[name="email"]').value
+              email: form.querySelector('[name="email"]').value,
+              fax_number: form.querySelector('[name="fax_number"]') ? form.querySelector('[name="fax_number"]').value : '',
+              _loadedAt: form.querySelector('[name="_loadedAt"]') ? form.querySelector('[name="_loadedAt"]').value : ''
             })
           });
           if (res.ok) {

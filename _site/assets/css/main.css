@@ -1695,7 +1695,29 @@ main {
     align-items: center;
     justify-content: space-between;
     padding: 1.25rem 2.5rem;
-    border-top: 1px solid rgba(255,255,255,0.06);
+    background: #ffffff;
+    border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+.footer-bottom-bar .footer-copyright {
+    color: rgba(0,0,0,0.45);
+}
+
+.footer-bottom-bar .footer-credit-link {
+    color: rgba(0,0,0,0.4);
+}
+
+.footer-bottom-bar .footer-credit-link:hover {
+    color: var(--accent-yellow);
+}
+
+.footer-bottom-bar .gullstack-logo {
+    filter: none;
+    opacity: 0.5;
+}
+
+.footer-bottom-bar .footer-credit-link:hover .gullstack-logo {
+    opacity: 0.8;
 }
 @media (max-width: 768px) {
     .footer-trio {
@@ -1745,8 +1767,9 @@ main {
     filter: grayscale(0%);
 }
 .retailer-logo {
-    height: 24px;
+    height: 28px;
     width: auto;
+    object-fit: contain;
 }
 .retailer-logo-tall {
     height: 34px;

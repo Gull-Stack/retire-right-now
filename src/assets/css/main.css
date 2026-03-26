@@ -1767,8 +1767,9 @@ main {
     filter: grayscale(0%);
 }
 .retailer-logo {
-    height: 24px;
+    height: 28px;
     width: auto;
+    object-fit: contain;
 }
 .retailer-logo-tall {
     height: 34px;
