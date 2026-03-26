@@ -187,6 +187,10 @@ p {
     font-size: 1.125rem;
 }
 
+/* Mobile/Desktop CTA toggle */
+.nav-cta-mobile { display: none; }
+.nav-cta-desktop { display: inline-block; }
+
 /* Header */
 .header {
     position: fixed;
@@ -1007,7 +1011,7 @@ p {
     .hero-content {
         grid-template-columns: 1fr;
         gap: 2rem;
-        text-align: center;
+        text-align: left;
     }
     
     .nav-links {
@@ -1015,7 +1019,15 @@ p {
     }
     
     .nav-toggle {
-        display: flex;
+        display: none;
+    }
+    
+    .nav-cta-mobile {
+        display: inline-block;
+    }
+    
+    .nav-cta-desktop {
+        display: none;
     }
     
     .roadmap-grid {
