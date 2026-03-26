@@ -989,10 +989,27 @@ main {
 
 /* Footer */
 .footer {
-    background: var(--bg-dark);
+    background: var(--bg-dark-alt);
     color: var(--text-on-dark);
-    padding: 2.5rem 0;
-    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 3rem 0 2rem;
+    border-top: 3px solid var(--accent-yellow);
+}
+
+.footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer-logo {
+    height: 80px;
+    width: auto;
+    margin-bottom: 0.5rem;
 }
 
 .footer-content {
