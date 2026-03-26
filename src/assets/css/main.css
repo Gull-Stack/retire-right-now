@@ -191,6 +191,19 @@ p {
 .nav-cta-mobile { display: none; }
 .nav-cta-desktop { display: inline-block; }
 
+/* Header CTA — yellow bg, blue text */
+.nav-cta-desktop,
+.nav-cta-mobile {
+    background: var(--accent-yellow) !important;
+    color: var(--text-dark) !important;
+    border-color: var(--accent-yellow) !important;
+}
+.nav-cta-desktop:hover,
+.nav-cta-mobile:hover {
+    background: var(--accent-yellow-hover) !important;
+    color: var(--text-dark) !important;
+}
+
 /* Header */
 .header {
     position: fixed;
