@@ -1,15 +1,15 @@
 {
   "title": "Retire Right, Retire Now",
   "subtitle": "A portfolio is not a plan.",
-  "url": "https://retire-right-now.vercel.app",
+  "url": "https://www.retirerightbook.com",
   "description": "You've saved in your 401(k). You paid off the house. You did what you were told. But now you're staring at a pile of accounts, wondering: Is it enough? Will it last? What am I forgetting? 'Retire Right, Retire Now' answers those questions — clearly, honestly, and without the jargon.",
   "author": {
     "name": "Mike Stevens",
-    "title": "President of Capital Wealth Advisors",
+    "title": "President of Capital Wealth",
     "bio": "Fiduciary advisor, founder, radio host, and board member dedicated to helping people retire with confidence.",
     "location": "Lehi, UT",
     "linkedin": "https://www.linkedin.com/in/mstevens317/",
-    "company": "Capital Wealth Advisors"
+    "company": "Capital Wealth"
   },
   "book": {
     "isbn": "TBD-2026",
@@ -19,7 +19,7 @@
     "format": "Hardcover, Paperback, Digital"
   },
   "organization": {
-    "name": "Capital Wealth Advisors",
+    "name": "Capital Wealth",
     "address": {
       "streetAddress": "TBD Street",
       "addressLocality": "Lehi",

@@ -74,7 +74,7 @@ h1, h2, h3, h4, .eyebrow {
 }
 
 h1 {
-    font-size: clamp(3.5rem, 7vw, 5rem);
+    font-size: clamp(2.8rem, 6vw, 4.2rem);
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: 1.5rem;
@@ -106,7 +106,7 @@ h4 {
 
 p {
     margin-bottom: 1.5rem;
-    color: var(--text-muted-dark);
+    color: #e8edf5;
 }
 
 .eyebrow {
@@ -118,11 +118,19 @@ p {
     color: var(--accent-yellow);
 }
 
+.text-yellow {
+    color: var(--accent-yellow);
+}
+
 .tagline {
     font-size: clamp(1.25rem, 3vw, 1.75rem);
     font-weight: 600;
     color: var(--accent-yellow);
     margin-bottom: 1.5rem;
+}
+
+.hero-subtitle {
+    font-size: 1.125rem;
 }
 
 /* Fade-in Animation */
@@ -146,7 +154,7 @@ p {
     font-size: 1rem;
     text-decoration: none;
     border: none;
-    border-radius: 50px;
+    border-radius: 6px;
     cursor: pointer;
     transition: all 0.3s ease;
     text-align: center;
@@ -162,6 +170,18 @@ p {
     box-shadow: 0 8px 25px var(--glow-yellow);
 }
 
+.btn-secondary {
+    background: var(--text-dark);
+    color: var(--accent-yellow);
+    border: 2px solid var(--text-dark);
+}
+
+.btn-secondary:hover {
+    background: rgba(15, 26, 42, 0.9);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
 .btn-large {
     padding: 1.125rem 2.5rem;
     font-size: 1.125rem;
@@ -173,9 +193,8 @@ p {
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(6, 20, 36, 0.95);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border-glass);
+    background: var(--accent-yellow);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     z-index: 1000;
     padding: 1rem 0;
 }
@@ -190,7 +209,7 @@ p {
     font-family: 'Manrope', sans-serif;
     font-weight: 800;
     font-size: 1.25rem;
-    color: #ffffff;
+    color: var(--text-dark);
     text-decoration: none;
 }
 
@@ -200,14 +219,14 @@ p {
 }
 
 .nav-links a {
-    color: var(--text-muted-dark);
+    color: var(--text-dark);
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: var(--accent-yellow);
+    color: rgba(15, 26, 42, 0.8);
 }
 
 .nav-toggle {
@@ -222,7 +241,7 @@ p {
 .nav-toggle span {
     width: 20px;
     height: 2px;
-    background: var(--text-on-dark);
+    background: var(--text-dark);
     transition: all 0.3s ease;
 }
 
@@ -267,7 +286,7 @@ p {
 
 .hero-book-img {
     width: 100%;
-    max-width: 400px;
+    max-width: 500px;
     height: auto;
     filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
     animation: float 6s ease-in-out infinite;
@@ -304,7 +323,7 @@ p {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: var(--text-muted-dark);
+    color: #ffffff;
     margin-bottom: 1.5rem;
 }
 
@@ -329,12 +348,12 @@ p {
 .retailer-logo {
     height: 40px;
     width: auto;
-    filter: grayscale(100%);
+    filter: grayscale(100%) brightness(0) invert(1);
     transition: filter 0.3s ease;
 }
 
 .retailer-link:hover .retailer-logo {
-    filter: grayscale(0%);
+    filter: grayscale(0%) brightness(1) invert(0);
 }
 
 /* Curated Roadmap Section */
@@ -354,7 +373,7 @@ p {
 
 .section-subtitle {
     font-size: 1.25rem;
-    color: var(--text-muted-dark);
+    color: rgba(255,255,255,0.7);
     font-style: italic;
 }
 
@@ -368,8 +387,9 @@ p {
     background: var(--surface-glass);
     backdrop-filter: blur(12px);
     border-top: 1px solid var(--border-glass);
+    border: 1px solid rgba(78, 70, 53, 0.2);
     border-radius: 12px;
-    padding: 2rem;
+    padding: 2.5rem;
     position: relative;
     overflow: hidden;
     transition: all 0.3s ease;
@@ -383,19 +403,19 @@ p {
 .roadmap-card::before {
     content: attr(data-number);
     position: absolute;
-    top: 1rem;
-    right: 1rem;
-    font-size: 4rem;
+    top: -0.5rem;
+    right: -0.5rem;
+    font-size: 9rem;
     font-weight: 800;
     font-family: 'Manrope', sans-serif;
     color: var(--accent-yellow);
-    opacity: 0.1;
+    opacity: 0.08;
     z-index: 1;
 }
 
 .roadmap-icon {
-    width: 3rem;
-    height: 3rem;
+    width: 2rem;
+    height: 2rem;
     margin-bottom: 1.5rem;
     color: var(--accent-yellow);
     position: relative;
@@ -412,6 +432,8 @@ p {
     margin-bottom: 0;
     position: relative;
     z-index: 2;
+    font-size: 0.95rem;
+    line-height: 1.6;
 }
 
 /* Is This Guide For You Section */
@@ -578,9 +600,9 @@ p {
 .media-bar {
     text-align: center;
     padding: 2rem;
-    background: var(--surface-base);
+    background: #ffffff;
     border-radius: 12px;
-    border: 1px solid var(--border-glass);
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .media-bar-label {
@@ -589,12 +611,12 @@ p {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    color: var(--text-muted-dark);
+    color: var(--text-dark);
     margin-bottom: 2rem;
 }
 
 .media-bar-label em {
-    color: var(--accent-yellow);
+    color: #d4a12a;
     font-style: normal;
 }
 
@@ -610,7 +632,7 @@ p {
     height: 32px;
     width: auto;
     opacity: 0.7;
-    filter: grayscale(100%);
+    filter: grayscale(50%);
     transition: all 0.3s ease;
 }
 
@@ -644,6 +666,9 @@ p {
     display: flex;
     gap: 1rem;
     margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .form-group {
@@ -663,7 +688,7 @@ p {
     padding: 0.875rem 1rem;
     font-size: 1rem;
     border: 1px solid var(--border-glass);
-    border-radius: 8px;
+    border-radius: 6px;
     background: var(--surface-glass);
     backdrop-filter: blur(12px);
     color: var(--text-on-dark);
@@ -673,7 +698,7 @@ p {
 .form-group input:focus {
     outline: none;
     border-color: var(--accent-yellow);
-    box-shadow: 0 0 0 3px rgba(253, 210, 94, 0.1);
+    box-shadow: 0 0 0 2px rgba(253, 210, 94, 0.3);
 }
 
 .form-group input::placeholder {
@@ -685,7 +710,7 @@ p {
     color: var(--text-dark);
     border: none;
     padding: 0.875rem 2rem;
-    border-radius: 8px;
+    border-radius: 6px;
     font-size: 1rem;
     font-weight: 600;
     font-family: 'Manrope', sans-serif;
@@ -901,6 +926,85 @@ p {
     height: 20px;
 }
 
+/* Stitch-Style Footer */
+.stitch-footer-section {
+    background: var(--bg-dark);
+    padding: 3rem 0 2rem;
+}
+
+.stitch-footer {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.stitch-footer-left {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.stitch-footer-logo {
+    height: 60px;
+    width: auto;
+}
+
+.stitch-footer-center {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.stitch-footer-btn {
+    background: var(--surface-glass);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border-glass);
+    border-radius: 6px;
+    padding: 0.75rem 1.5rem;
+    color: var(--text-on-dark);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.stitch-footer-btn:hover {
+    background: var(--accent-yellow);
+    color: var(--text-dark);
+    transform: translateY(-2px);
+}
+
+.stitch-footer-right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.stitch-footer-credit {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--text-muted-dark);
+}
+
+.gullstack-mini-logo {
+    width: 16px;
+    height: 16px;
+}
+
+.stitch-footer-copyright {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-glass);
+}
+
+.stitch-footer-copyright p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--text-muted-dark);
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
     .hero {
@@ -962,6 +1066,17 @@ p {
     
     .media-bar-logos {
         gap: 1.5rem;
+    }
+    
+    .stitch-footer {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+    }
+    
+    .stitch-footer-center {
+        flex-direction: column;
+        gap: 1rem;
     }
 }
 
