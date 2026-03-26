@@ -247,22 +247,15 @@ description: "Retire Right, Retire Now will show you how to turn your savings in
             <h2>Start Reading Today</h2>
             <p>Get your free chapter of Retire Right, Retire Now directly in your inbox.</p>
             
-            <form class="chapter-form" id="chapterForm" action="javascript:void(0)">
-                <div class="form-group">
-                    <label for="optin-name">First Name</label>
-                    <input type="text" id="optin-name" name="first_name" placeholder="Your first name" required>
-                </div>
-                <div class="form-group">
-                    <label for="optin-email">Email Address</label>
-                    <input type="email" id="optin-email" name="email" placeholder="you@example.com" required>
-                </div>
+            <form class="chapter-form-inline" id="chapterForm" action="javascript:void(0)">
+                <input type="text" name="first_name" placeholder="Full Name" required>
+                <input type="email" name="email" placeholder="Email Address" required>
                 <!-- Honeypot — invisible to humans, bots fill it -->
                 <div style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true">
-                    <label for="fax_number">Fax</label>
-                    <input type="text" id="fax_number" name="fax_number" tabindex="-1" autocomplete="off">
+                    <input type="text" name="fax_number" tabindex="-1" autocomplete="off">
                 </div>
                 <input type="hidden" name="_loadedAt" id="_loadedAt" value="">
-                <button type="submit" class="chapter-button">Get Your Free Chapter</button>
+                <button type="submit">Get Your Free Chapter</button>
             </form>
             
             <p class="trust-signal">

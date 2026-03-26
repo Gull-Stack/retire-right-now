@@ -193,8 +193,10 @@ p {
     top: 0;
     left: 0;
     right: 0;
-    background: var(--accent-yellow);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    background: rgba(6, 20, 36, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     z-index: 1000;
     padding: 1rem 0;
 }
@@ -209,7 +211,7 @@ p {
     font-family: 'Manrope', sans-serif;
     font-weight: 800;
     font-size: 1.25rem;
-    color: var(--text-dark);
+    color: var(--accent-yellow);
     text-decoration: none;
 }
 
@@ -219,14 +221,14 @@ p {
 }
 
 .nav-links a {
-    color: var(--text-dark);
+    color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: rgba(15, 26, 42, 0.8);
+    color: #ffffff;
 }
 
 .nav-toggle {
@@ -241,7 +243,7 @@ p {
 .nav-toggle span {
     width: 20px;
     height: 2px;
-    background: var(--text-dark);
+    background: #ffffff;
     transition: all 0.3s ease;
 }
 
@@ -303,10 +305,10 @@ p {
 
 /* Retailer Bar */
 .retailer-bar {
-    background: var(--surface-container-low);
-    padding: 2rem 0;
-    border-top: 1px solid var(--border-glass);
-    border-bottom: 1px solid var(--border-glass);
+    background: #ffffff;
+    padding: 2.5rem 0;
+    border-top: 1px solid rgba(0,0,0,0.06);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
 }
 
 .retailer-bar-inner {
@@ -319,41 +321,40 @@ p {
 .retailer-bar::before {
     content: 'AVAILABLE AT';
     display: block;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #ffffff;
+    letter-spacing: 3px;
+    color: rgba(15, 26, 42, 0.4);
     margin-bottom: 1.5rem;
+    text-align: center;
 }
 
 .retailer-logos {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 2.5rem;
     flex-wrap: wrap;
 }
 
 .retailer-link {
     transition: all 0.3s ease;
-    opacity: 0.6;
+    opacity: 0.5;
+    filter: grayscale(100%);
 }
 
 .retailer-link:hover {
     opacity: 1;
+    filter: grayscale(0%);
     transform: translateY(-2px);
 }
 
 .retailer-logo {
-    height: 40px;
+    height: 32px;
     width: auto;
-    filter: grayscale(100%) brightness(0) invert(1);
-    transition: filter 0.3s ease;
-}
-
-.retailer-link:hover .retailer-logo {
-    filter: grayscale(0%) brightness(1) invert(0);
+    object-fit: contain;
+    transition: all 0.3s ease;
 }
 
 /* Curated Roadmap Section */
@@ -662,64 +663,56 @@ p {
     margin-bottom: 3rem;
 }
 
-.chapter-form {
+/* Stitch-style inline form */
+.chapter-form-inline {
     display: flex;
     gap: 1rem;
-    margin-bottom: 2rem;
-    max-width: 600px;
+    margin-bottom: 1.5rem;
+    max-width: 700px;
     margin-left: auto;
     margin-right: auto;
+    align-items: stretch;
 }
 
-.form-group {
+.chapter-form-inline input {
     flex: 1;
-}
-
-.form-group label {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: var(--text-on-dark);
-    text-align: left;
-}
-
-.form-group input {
-    width: 100%;
-    padding: 0.875rem 1rem;
+    padding: 1rem 1.25rem;
     font-size: 1rem;
-    border: 1px solid var(--border-glass);
+    font-family: 'Inter', sans-serif;
+    border: 1px solid rgba(78, 70, 53, 0.15);
     border-radius: 6px;
-    background: var(--surface-glass);
+    background: rgba(41, 53, 72, 0.3);
     backdrop-filter: blur(12px);
-    color: var(--text-on-dark);
+    color: #ffffff;
     transition: all 0.3s ease;
-}
-
-.form-group input:focus {
     outline: none;
+}
+
+.chapter-form-inline input:focus {
     border-color: var(--accent-yellow);
-    box-shadow: 0 0 0 2px rgba(253, 210, 94, 0.3);
+    box-shadow: 0 0 0 2px rgba(253, 210, 94, 0.2);
 }
 
-.form-group input::placeholder {
-    color: var(--text-muted-dark);
+.chapter-form-inline input::placeholder {
+    color: rgba(186, 199, 222, 0.6);
 }
 
-.chapter-button {
-    background: linear-gradient(135deg, var(--accent-yellow), #f7c73e);
+.chapter-form-inline button {
+    background: var(--accent-yellow);
     color: var(--text-dark);
     border: none;
-    padding: 0.875rem 2rem;
+    padding: 1rem 2rem;
     border-radius: 6px;
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 700;
     font-family: 'Manrope', sans-serif;
     cursor: pointer;
     transition: all 0.3s ease;
     white-space: nowrap;
 }
 
-.chapter-button:hover {
+.chapter-form-inline button:hover {
+    background: var(--accent-yellow-hover);
     transform: translateY(-2px);
     box-shadow: 0 8px 25px var(--glow-yellow);
 }
@@ -1077,6 +1070,10 @@ p {
     .stitch-footer-center {
         flex-direction: column;
         gap: 1rem;
+    }
+
+    .chapter-form-inline {
+        flex-direction: column;
     }
 }
 
