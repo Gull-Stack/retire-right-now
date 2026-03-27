@@ -407,6 +407,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 })
             });
             if (res.ok) {
+                // GA4 conversion event — chapter download / list signup
+                if (typeof gtag === 'function') {
+                  gtag('event', 'generate_lead', {
+                    event_category: 'lead',
+                    event_label: 'book_chapter_download',
+                    value: 1
+                  });
+                }
                 form.innerHTML = '<div style="text-align:center;padding:2rem 0"><h3 style="color:#FDD25E;margin-bottom:0.5rem">You\'re on the list!</h3><p style="color:rgba(255,255,255,0.8)">Check your email for a confirmation from Mike.</p></div>';
             } else {
                 throw new Error('fail');
