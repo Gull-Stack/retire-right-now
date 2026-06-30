@@ -1,0 +1,96 @@
+---
+layout: layouts/base.njk
+title: Your Complimentary Retirement Money Map
+description: A gift to readers of Retire Right, Retire Now — request your complimentary Retirement Money Map, a personalized look at your retirement income, taxes, and the path to retiring with confidence.
+permalink: /gift/
+---
+
+<style>
+  .section-gift { padding: 64px 0; }
+  .gift-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 48px; align-items: start; }
+  .gift-eyebrow { display:inline-block; font-size:13px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#b8860c; margin-bottom:12px; }
+  .section-gift h1 { font-size: clamp(30px, 4.5vw, 44px); line-height:1.12; margin:0 0 16px; }
+  .section-gift h1 em { font-style: italic; color:#b8860c; }
+  .gift-lead { font-size:18px; line-height:1.6; color:#3b4654; margin:0 0 22px; max-width:540px; }
+  .gift-list { list-style:none; margin:0 0 8px; padding:0; display:grid; gap:12px; }
+  .gift-list li { display:flex; gap:12px; align-items:flex-start; font-size:16px; line-height:1.5; color:#33414f; }
+  .gift-list li::before { content:"✓"; color:#b8860c; font-weight:700; flex:0 0 auto; }
+  .gift-card { background:#fff; border:1px solid #e7e8ec; border-radius:14px; box-shadow:0 18px 48px rgba(12,26,46,.12); overflow:hidden; }
+  .gift-card img { width:100%; display:block; aspect-ratio:16/10; object-fit:cover; }
+  .gift-card-body { padding:26px 24px 28px; }
+  .gift-card-body h2 { font-size:22px; margin:0 0 4px; }
+  .gift-card-body p.sub { font-size:14.5px; color:#7c868d; margin:0 0 18px; }
+  .gift-form { display:flex; flex-direction:column; gap:11px; }
+  .gift-form input[type=text], .gift-form input[type=email] { padding:13px 15px; border:1px solid #e7e8ec; border-radius:9px; font-size:16px; }
+  .gift-form button { padding:15px 22px; border:0; border-radius:10px; background:#b8860c; color:#fff; font-weight:700; font-size:16px; text-transform:uppercase; letter-spacing:.02em; cursor:pointer; }
+  .gift-form button:disabled { opacity:.65; cursor:default; }
+  .gift-hp { position:absolute; left:-9999px; width:1px; height:1px; opacity:0; }
+  .gift-msg { margin:4px 0 0; font-size:14px; min-height:18px; }
+  .gift-fine { margin:8px 0 0; font-size:12px; color:#7c868d; line-height:1.5; }
+  @media (max-width:820px){ .gift-grid{ grid-template-columns:1fr; gap:28px; } }
+</style>
+
+<section class="section section-gift">
+  <div class="container">
+    <div class="gift-grid reveal">
+
+      <div class="gift-copy">
+        <span class="gift-eyebrow">A Gift to Our Readers</span>
+        <h1>Your Complimentary <em>Retirement Money Map</em></h1>
+        <p class="gift-lead">Thank you for reading <strong>Retire Right, Retire Now</strong>. As a reader, you're invited to a complimentary Retirement Money Map &mdash; a personalized, no-obligation look at where you stand and what your retirement could look like.</p>
+        <ul class="gift-list">
+          <li>A clear picture of your retirement income &mdash; what comes in, and when</li>
+          <li>A look at taxes in retirement and where you may be leaving money on the table</li>
+          <li>Social Security timing and how it fits the rest of your plan</li>
+          <li>The gaps and the opportunities, mapped out in plain English</li>
+        </ul>
+        <p class="gift-fine">Educational and complimentary &mdash; no cost, no obligation, no high-pressure pitch.</p>
+      </div>
+
+      <div class="gift-card">
+        <img src="/assets/images/photos/money-map.jpg" alt="Retirement Money Map">
+        <div class="gift-card-body">
+          <h2>Request your Money Map</h2>
+          <p class="sub">Enter your info and we&rsquo;ll reach out to build it with you.</p>
+          <form id="giftForm" class="gift-form" action="javascript:void(0)" novalidate>
+            <input type="text" name="first_name" placeholder="Full Name" autocomplete="name" required>
+            <input type="email" name="email" placeholder="Email Address" autocomplete="email" required>
+            <input type="text" name="fax_number" class="gift-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <input type="hidden" name="_loadedAt" id="_giftLoadedAt" value="">
+            <button type="submit">Request my Money Map &rarr;</button>
+            <p id="giftMsg" class="gift-msg" role="status" aria-live="polite"></p>
+            <p class="gift-fine">We&rsquo;ll never share your information.</p>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var form=document.getElementById('giftForm'),msg=document.getElementById('giftMsg');
+  var la=document.getElementById('_giftLoadedAt'); if(la) la.value=String(Date.now());
+  if(!form) return;
+  form.addEventListener('submit',async function(e){
+    e.preventDefault();
+    if(form.fax_number && form.fax_number.value) return; // honeypot
+    var name=form.first_name.value.trim(), email=form.email.value.trim();
+    if(!name||!email){ msg.textContent='Please enter your name and email.'; msg.style.color='#c0392b'; return; }
+    var btn=form.querySelector('button'), orig=btn.textContent; btn.disabled=true; btn.textContent='Sending…';
+    try{
+      var res=await fetch('/api/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({ first_name:name, email:email, source:'gift-money-map',
+          fax_number:form.fax_number?form.fax_number.value:'', _loadedAt:la?la.value:'' })});
+      if(res.ok){
+        form.innerHTML='<p style="font-size:17px;line-height:1.6;color:#16253d;margin:0;"><strong>You&rsquo;re all set.</strong><br>We&rsquo;ll be in touch shortly to build your complimentary Retirement Money Map. Thank you for reading the book.</p>';
+      }else{
+        var j={}; try{ j=await res.json(); }catch(_){}
+        msg.textContent=(j&&j.error)||'Something went wrong — please try again.'; msg.style.color='#c0392b';
+        btn.disabled=false; btn.textContent=orig;
+      }
+    }catch(err){ msg.textContent='Network error — please try again.'; msg.style.color='#c0392b'; btn.disabled=false; btn.textContent=orig; }
+  });
+})();
+</script>
