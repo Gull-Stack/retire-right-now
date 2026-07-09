@@ -1,0 +1,124 @@
+---
+layout: layouts/base.njk
+title: Guarding Your Legacy — Document & Estate Checklist
+description: A complimentary checklist to organize your important documents, accounts, and final wishes — so your family always knows where everything is. From Retire Right, Retire Now.
+permalink: /resources/guarding-your-legacy/
+---
+
+{% set sections = [
+  { key: "GENERAL ITEMS", items: [
+    "Social Security card", "Passport (and naturalization papers)", "Driver's license number and expiration date",
+    "Adoption papers", "Prenuptial agreement", "Divorce or separation papers",
+    "Safe deposit box(es) and keys", "Safe and combination" ] },
+  { key: "INVESTMENT DOCUMENTS", items: [
+    "Brokerage account statements", "Mutual fund account statements", "Annuity account statements",
+    "Individual retirement plan statements", "Company retirement plan statements", "Bearer bonds not held in an account",
+    "Alternative investment documents (including K-1s)", "Investment club documents / records",
+    "529 college savings plan statements", "Online securities access information",
+    "Documents showing cost basis of securities owned or sold" ] },
+  { key: "INSURANCE DOCUMENTS", items: [
+    "Life insurance policy documents", "Group life policies", "Health and accident insurance ID cards and claim records",
+    "Mortgage insurance policy", "Travel insurance policy", "Property and casualty policy documents",
+    "Veterans administration insurance papers", "Long-term care insurance policy" ] },
+  { key: "PERSONAL FINANCIAL DOCUMENTS", items: [
+    "Appraisals for valuable items", "Inventory of valuable items", "Buy/sell or partnership agreements",
+    "Deferred compensation agreements", "Federal / state gift tax returns", "Prior years' tax returns",
+    "Motor vehicle title and/or registration papers", "Lawsuit paperwork or pending legal actions",
+    "Promissory notes", "Outstanding loans", "Mortgage documents", "Medical bills / records and prescription plan card",
+    "Property and school tax records", "Real estate deeds and/or other titles of ownership",
+    "Rental and/or lease agreements", "Trust documents / agreements" ] },
+  { key: "BANK / CREDIT DOCUMENTS", items: [
+    "Checking or money market account statements", "Checks", "Savings accounts",
+    "Credit cards and account statements", "Credit union account books or statements" ] },
+  { key: "EMERGENCY DOCUMENTS", items: [
+    "Living will / health care proxy", "Durable power of attorney",
+    "Financial institution's proprietary power of attorney forms" ] },
+  { key: "PAPERWORK FOR FINAL ARRANGEMENTS", items: [
+    "Last Will and Testament (do NOT keep in a safe deposit box)", "Military discharge papers",
+    "Burial instructions", "Cemetery plot deed", "Prepaid cremation documents",
+    "Funeral home preference and information", "Charitable donation preferences",
+    "Letter of instruction to the executor", "Phone number / address of county surrogate court" ] }
+] %}
+
+<style>
+  .gyl { --gold:#b8860c; --ink:#16253d; --grey:#7c868d; --line:#e7e8ec; }
+  .gyl-hero { background:linear-gradient(180deg,#0c1a2e,#16253d); color:#fff; padding:56px 0 44px; text-align:center; }
+  .gyl-hero .eyebrow { font-size:13px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--gold); }
+  .gyl-hero h1 { font-size:clamp(30px,5vw,44px); margin:12px 0 12px; color:#fff; }
+  .gyl-hero p { max-width:620px; margin:0 auto; font-size:17px; line-height:1.6; color:#d6dee8; }
+  .gyl-body { padding:44px 0 56px; }
+  .gyl-intro { max-width:760px; margin:0 auto 30px; font-size:16px; line-height:1.65; color:#33414f; }
+  .gyl-print { text-align:center; margin:0 0 34px; }
+  .gyl-print button { padding:13px 26px; border:0; border-radius:8px; background:var(--gold); color:#fff; font-weight:700; font-size:15px; text-transform:uppercase; letter-spacing:.4px; cursor:pointer; }
+  .gyl-contacts { max-width:820px; margin:0 auto 34px; border:1px solid var(--line); border-radius:12px; overflow:hidden; }
+  .gyl-contacts h2, .gyl-sec h2 { background:var(--ink); color:#fff; margin:0; padding:12px 18px; font-size:15px; letter-spacing:.06em; text-transform:uppercase; }
+  .gyl-contacts table, .gyl-sec table { width:100%; border-collapse:collapse; }
+  .gyl-contacts td, .gyl-sec td { border-top:1px solid var(--line); padding:11px 18px; font-size:15px; }
+  .gyl-contacts .lbl { width:38%; font-weight:600; color:var(--ink); }
+  .gyl-contacts .fill { border-bottom:1px dotted #b9bfc7; }
+  .gyl-sec { max-width:820px; margin:0 auto 20px; border:1px solid var(--line); border-radius:12px; overflow:hidden; }
+  .gyl-sec .row { display:flex; align-items:center; gap:12px; border-top:1px solid var(--line); padding:10px 18px; }
+  .gyl-sec .row:first-of-type { border-top:0; }
+  .gyl-sec .box { flex:0 0 18px; width:18px; height:18px; border:2px solid var(--gold); border-radius:4px; }
+  .gyl-sec .name { flex:1; font-size:15px; color:#26313d; }
+  .gyl-sec .loc { flex:0 0 40%; border-bottom:1px dotted #b9bfc7; height:18px; }
+  .gyl-sec .loc-lbl { flex:0 0 40%; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--grey); text-align:right; }
+  .gyl-foot { max-width:820px; margin:34px auto 0; text-align:center; font-size:14px; line-height:1.6; color:var(--grey); }
+  .gyl-foot strong { color:var(--ink); }
+  @media (max-width:640px){ .gyl-sec .loc,.gyl-sec .loc-lbl{ display:none; } }
+  @media print {
+    .gyl-hero { background:#fff !important; color:#000 !important; padding:0 0 16px; -webkit-print-color-adjust:exact; }
+    .gyl-hero .eyebrow,.gyl-hero h1{ color:#000 !important; }
+    .gyl-print{ display:none; }
+    .gyl-sec,.gyl-contacts{ break-inside:avoid; }
+    .gyl-sec h2,.gyl-contacts h2{ background:#eee !important; color:#000 !important; -webkit-print-color-adjust:exact; }
+  }
+</style>
+
+<div class="gyl">
+  <section class="gyl-hero">
+    <span class="eyebrow">A Retire Right Reader Resource</span>
+    <h1>Guarding Your Legacy</h1>
+    <p>A simple checklist to organize your important documents, accounts, and final wishes — so your family always knows where everything is, when it matters most.</p>
+  </section>
+
+  <div class="gyl-body">
+    <div class="container">
+      <p class="gyl-intro">Our lives are always moving from one phase to the next — a new job, a home, marriage, kids, retirement — and the paperwork that comes with each stage is easy to lose track of. The Guarding Your Legacy Checklist puts it all in one place. Work through each section, note where each item is kept, and share it with the people you trust. It's one of the kindest things you can do for your family.</p>
+
+      <div class="gyl-print"><button type="button" onclick="window.print()">🖨  Print this checklist</button></div>
+
+      <div class="gyl-contacts">
+        <h2>Important Contacts</h2>
+        <table>
+          <tr><td class="lbl">Financial Professional</td><td class="fill">&nbsp;</td></tr>
+          <tr><td class="lbl">CPA / Accountant</td><td class="fill">&nbsp;</td></tr>
+          <tr><td class="lbl">Insurance Agent</td><td class="fill">&nbsp;</td></tr>
+          <tr><td class="lbl">Attorney</td><td class="fill">&nbsp;</td></tr>
+          <tr><td class="lbl">Executor of Estate</td><td class="fill">&nbsp;</td></tr>
+        </table>
+      </div>
+
+      {% for s in sections %}
+      <div class="gyl-sec">
+        <h2>{{ s.key }}</h2>
+        {% for item in s.items %}
+        <div class="row">
+          <span class="box" aria-hidden="true"></span>
+          <span class="name">{{ item }}</span>
+          <span class="loc-lbl">Location&nbsp;</span>
+          <span class="loc"></span>
+        </div>
+        {% endfor %}
+      </div>
+      {% endfor %}
+
+      <div class="gyl-foot">
+        <p>Questions, or want help completing this? We're glad to walk through it with you.<br>
+        <strong>Capital Wealth</strong> · 801.210.2800 · mstevens@capitalwealth.com · capitalwealth.com<br>
+        1850 W. Ashton Blvd, Suite 175, Lehi, UT 84043</p>
+        <p style="font-size:12px;margin-top:14px;">This checklist is for organizational purposes only and is not legal or tax advice. Please consult your attorney and/or tax professional. Insurance services offered through CWA Insurance Services, LLC.</p>
+      </div>
+    </div>
+  </div>
+</div>
