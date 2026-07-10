@@ -5,26 +5,26 @@
 :root {
     --bg-light: #ffffff;
     --bg-warm: #f0f1f3;              /* Light Grey */
-    --bg-dark: #0F1A2A;              /* Ink Black */
-    --bg-dark-alt: #16253C;          /* Prussian Blue — primary brand */
+    --bg-dark: #0A4EA8;              /* Retire Right cover blue — deep */
+    --bg-dark-alt: #0E59BE;          /* Retire Right cover blue — mid */
     --accent-blue: #57A5F4;          /* Cool Horizon — secondary CTA & accent */
     --accent-blue-hover: #3d8fe0;
-    --accent-yellow: #FDD25E;        /* Mustard — primary CTA & accent */
-    --accent-yellow-hover: #e6bc45;
+    --accent-yellow: #F3C24C;        /* Retire Right cover gold — primary CTA & accent */
+    --accent-yellow-hover: #e0ad38;
     --brand-grey: #7b868C;           /* Brand Grey — PANTONE 430 C */
     --text-dark: #0F1A2A;            /* Ink Black */
     --text-body: #444;
-    --text-on-dark: #e8e8e8;
-    --text-muted-dark: rgba(255,255,255,0.7);
+    --text-on-dark: #ffffff;
+    --text-muted-dark: rgba(255,255,255,0.82);
     --glow-blue: rgba(87,165,244,0.2);
-    --glow-yellow: rgba(253,210,94,0.15);
-    
-    /* Dark editorial surface hierarchy */
-    --surface-base: #061424;
-    --surface-container-low: #0F1C2D;
-    --surface-container: #293548;
-    --surface-glass: rgba(15, 28, 45, 0.7);
-    --border-glass: rgba(78, 70, 53, 0.15);
+    --glow-yellow: rgba(243,194,76,0.18);
+
+    /* Brand blue surface hierarchy — matched to the Retire Right cover */
+    --surface-base: #0A4AA0;
+    --surface-container-low: #0E56B8;
+    --surface-container: #1E6AD0;
+    --surface-glass: rgba(14, 86, 184, 0.72);
+    --border-glass: rgba(255, 255, 255, 0.18);
 }
 
 /* Scroll Progress Bar */

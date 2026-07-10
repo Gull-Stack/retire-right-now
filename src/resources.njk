@@ -1,29 +1,187 @@
 ---
 layout: layouts/base.njk
-title: Resources
-description: Additional retirement planning resources and tools from Mike Stevens
+title: Reader Resources
+description: The worksheets and guides from Retire Right, Retire Now — free to use. Organize your documents, plan your expenses, and turn what you've read into a real retirement plan.
 permalink: /resources/
 ---
 
-<section class="section section-resources">
+{% set resources = [
+  {
+    title: "Guarding Your Legacy Checklist",
+    desc: "Organize every important document, account, and final wish in one place — so your family always knows where everything is, when it matters most.",
+    href: "/resources/guarding-your-legacy/",
+    cta: "Open the checklist",
+    icon: "shield",
+    ready: true
+  },
+  {
+    title: "Retirement Expense Plan",
+    desc: "Map your monthly retirement expenses with built-in inflation planning — so you know exactly what your income needs to cover, now and twenty years from now.",
+    href: "",
+    cta: "Coming soon",
+    icon: "chart",
+    ready: false
+  }
+] %}
+
+<style>
+  .rr-res {
+    --blue-deep: #0A3E86;
+    --blue: #0A4AA0;
+    --gold: #F3C24C;
+    --ink: #12233B;
+    --slate: #46586F;
+    --line: #E6E9EF;
+  }
+  /* Hero */
+  .rr-res-hero {
+    background:
+      radial-gradient(1100px 480px at 50% -8%, rgba(255,255,255,0.16), transparent 60%),
+      linear-gradient(180deg, #1560C6 0%, var(--blue) 55%, var(--blue-deep) 100%);
+    padding: 92px 0 96px;
+    text-align: center;
+    border-bottom: 3px solid var(--gold);
+  }
+  .rr-res-hero .eyebrow {
+    display:inline-block; font-family:'Manrope',sans-serif; font-size: 0.95rem; font-weight: 800;
+    letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px;
+  }
+  .rr-res-hero h1 {
+    font-family:'Manrope',sans-serif; color:#fff; font-weight: 800;
+    font-size: clamp(2.5rem, 5.2vw, 4rem); line-height: 1.08; margin: 0 auto 20px; max-width: 16ch;
+  }
+  .rr-res-hero p {
+    color: rgba(255,255,255,0.92); font-size: clamp(1.15rem, 2.2vw, 1.35rem); line-height: 1.6;
+    max-width: 640px; margin: 0 auto;
+  }
+
+  /* Cards */
+  .rr-res-body { padding: 72px 0 40px; }
+  .rr-res-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 28px; max-width: 1000px; margin: 0 auto;
+  }
+  .rr-card {
+    position: relative; display: flex; flex-direction: column;
+    background: #fff; border-radius: 20px; padding: 40px 36px 34px;
+    box-shadow: 0 20px 50px rgba(4, 26, 64, 0.30); text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.6); transition: transform .18s ease, box-shadow .18s ease;
+  }
+  a.rr-card:hover { transform: translateY(-5px); box-shadow: 0 28px 64px rgba(4, 26, 64, 0.40); }
+  .rr-card.soon { opacity: 0.96; }
+  .rr-icon {
+    width: 66px; height: 66px; border-radius: 16px; background: rgba(243,194,76,0.16);
+    display: flex; align-items: center; justify-content: center; margin-bottom: 22px;
+  }
+  .rr-icon svg { width: 34px; height: 34px; }
+  .rr-tag {
+    position: absolute; top: 26px; right: 28px; font-family:'Manrope',sans-serif;
+    font-size: 0.72rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--blue-deep); background: var(--gold); padding: 6px 12px; border-radius: 999px;
+  }
+  .rr-card h2 {
+    font-family:'Manrope',sans-serif; color: var(--ink); font-weight: 800;
+    font-size: 1.7rem; line-height: 1.2; margin: 0 0 12px;
+  }
+  .rr-card p { color: var(--slate); font-size: 1.15rem; line-height: 1.6; margin: 0 0 26px; flex: 1; }
+  .rr-cta {
+    display: inline-flex; align-items: center; gap: 10px; align-self: flex-start;
+    font-family:'Manrope',sans-serif; font-weight: 800; font-size: 1.05rem;
+    padding: 14px 26px; border-radius: 12px; background: var(--gold); color: var(--blue-deep);
+    text-decoration: none; transition: background .15s ease;
+  }
+  a.rr-card:hover .rr-cta { background: #ffd35e; }
+  .rr-cta.disabled { background: #EEF1F5; color: #93A0B2; cursor: default; }
+  .rr-cta .arw { transition: transform .15s ease; }
+  a.rr-card:hover .rr-cta .arw { transform: translateX(4px); }
+
+  .rr-more { text-align:center; color: rgba(255,255,255,0.82); font-size: 1.05rem; margin: 40px auto 0; }
+
+  /* Closing CTA */
+  .rr-res-cta { padding: 24px 0 92px; }
+  .rr-cta-panel {
+    max-width: 1000px; margin: 0 auto; background: #fff; border-radius: 24px;
+    box-shadow: 0 24px 60px rgba(4,26,64,0.32); overflow: hidden;
+    display: grid; grid-template-columns: 200px 1fr; align-items: center; gap: 0;
+  }
+  .rr-cta-cover { background: linear-gradient(160deg, #1560C6, var(--blue-deep)); padding: 34px; display:flex; align-items:center; justify-content:center; height: 100%; }
+  .rr-cta-cover img { width: 132px; border-radius: 6px; box-shadow: 0 14px 34px rgba(0,0,0,0.4); }
+  .rr-cta-copy { padding: 44px 44px 44px 40px; }
+  .rr-cta-copy h2 { font-family:'Manrope',sans-serif; color: var(--ink); font-weight: 800; font-size: clamp(1.6rem, 3vw, 2.1rem); line-height: 1.15; margin: 0 0 12px; }
+  .rr-cta-copy p { color: var(--slate); font-size: 1.18rem; line-height: 1.6; margin: 0 0 24px; }
+  .rr-cta-copy .btn-gold {
+    display: inline-flex; align-items:center; gap:10px; font-family:'Manrope',sans-serif; font-weight:800; font-size:1.1rem;
+    padding: 16px 32px; border-radius: 12px; background: var(--gold); color: var(--blue-deep); text-decoration:none; transition: background .15s ease;
+  }
+  .rr-cta-copy .btn-gold:hover { background:#ffd35e; }
+
+  @media (max-width: 720px) {
+    .rr-res-hero { padding: 68px 0 68px; }
+    .rr-res-body { padding: 52px 0 28px; }
+    .rr-res-grid { grid-template-columns: 1fr; gap: 22px; }
+    .rr-card { padding: 32px 28px 30px; }
+    .rr-cta-panel { grid-template-columns: 1fr; }
+    .rr-cta-cover { padding: 32px; }
+    .rr-cta-copy { padding: 32px 28px; }
+  }
+</style>
+
+<div class="rr-res">
+
+  <section class="rr-res-hero">
     <div class="container">
-        <div class="resources-header reveal">
-            <h1>Resources</h1>
-            <p>Additional tools and resources to help you retire with confidence</p>
-        </div>
-        
-        <div class="resources-content reveal">
-            <div class="resource-cards" style="display:grid;gap:16px;max-width:720px;margin:0 auto;">
-                <a href="/resources/guarding-your-legacy/" style="display:block;border:1px solid #e7e8ec;border-radius:12px;padding:22px 24px;text-decoration:none;color:inherit;">
-                    <h3 style="margin:0 0 6px;color:#16253d;">Guarding Your Legacy Checklist &rarr;</h3>
-                    <p style="margin:0;color:#556;">Organize your important documents, accounts, and final wishes in one place &mdash; free and printable.</p>
-                </a>
-                <div style="border:1px dashed #cfd4da;border-radius:12px;padding:22px 24px;">
-                    <h3 style="margin:0 0 6px;color:#16253d;">Expense Plan <span style="font-size:13px;color:#b8860c;">&mdash; coming soon</span></h3>
-                    <p style="margin:0;color:#556;">A retirement expense worksheet with built-in inflation planning.</p>
-                </div>
-            </div>
-            <p style="text-align:center;margin-top:22px;"><a href="/#opt-in">Get your free chapter</a> to start building your retirement confidence today.</p>
-        </div>
+      <span class="eyebrow">Retire Right · Reader Resources</span>
+      <h1>Your retirement toolkit</h1>
+      <p>The worksheets and guides from the book — free to use and yours to keep. Built to help you turn what you've read into a real, workable plan.</p>
     </div>
-</section>
+  </section>
+
+  <section class="rr-res-body">
+    <div class="container">
+      <div class="rr-res-grid">
+        {% for r in resources %}
+          {% set inner %}
+            <div class="rr-icon">
+              {% if r.icon == "shield" %}
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l8 3v6c0 5-3.4 8.6-8 11-4.6-2.4-8-6-8-11V5l8-3z" stroke="#C99A1E" stroke-width="1.7" stroke-linejoin="round"/><path d="M8.5 12l2.4 2.4L15.6 9.5" stroke="#C99A1E" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              {% else %}
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 20h16" stroke="#C99A1E" stroke-width="1.8" stroke-linecap="round"/><rect x="5.5" y="11" width="3.2" height="7" rx="1" stroke="#C99A1E" stroke-width="1.7"/><rect x="10.4" y="7" width="3.2" height="11" rx="1" stroke="#C99A1E" stroke-width="1.7"/><rect x="15.3" y="13" width="3.2" height="5" rx="1" stroke="#C99A1E" stroke-width="1.7"/></svg>
+              {% endif %}
+            </div>
+            {% if not r.ready %}<span class="rr-tag">Coming soon</span>{% endif %}
+            <h2>{{ r.title }}</h2>
+            <p>{{ r.desc }}</p>
+            {% if r.ready %}
+              <span class="rr-cta">{{ r.cta }} <span class="arw">&rarr;</span></span>
+            {% else %}
+              <span class="rr-cta disabled">{{ r.cta }}</span>
+            {% endif %}
+          {% endset %}
+
+          {% if r.ready %}
+            <a class="rr-card" href="{{ r.href }}">{{ inner | safe }}</a>
+          {% else %}
+            <div class="rr-card soon">{{ inner | safe }}</div>
+          {% endif %}
+        {% endfor %}
+      </div>
+      <p class="rr-more">More reader resources are on the way — check back as we add them.</p>
+    </div>
+  </section>
+
+  <section class="rr-res-cta">
+    <div class="container">
+      <div class="rr-cta-panel">
+        <div class="rr-cta-cover">
+          <img src="/assets/images/book/ebook-cover.jpg" alt="Retire Right, Retire Now by Michael Stevens">
+        </div>
+        <div class="rr-cta-copy">
+          <h2>You've read the book. Let's build your plan.</h2>
+          <p>The next step is a complimentary Retirement Money Map — a clear, personalized look at your income, taxes, and the path to the retirement you've been reading about. No cost, no pressure.</p>
+          <a class="btn-gold" href="/gift">Get your Money Map <span>&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
